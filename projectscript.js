@@ -12,6 +12,12 @@ const planetData = {
     }
 };
 
+function trackButtonClick(buttonName) {
+    gtag('event', 'button_click', {
+        'button_name': buttonName
+    });
+}
+
 // Attach event listeners for planet buttons and orbiting planets
 document.addEventListener('DOMContentLoaded', () => {
     // Attach click events to each planet button in the container
@@ -29,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     orbitingPlanets.forEach(planet => {
         planet.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent vapor trail or other elements from intercepting clicks
-            
+            trackButtonClick(planetId);
             // Get the planet ID from the planet's ID
             const planetId = planet.id; // e.g., planet1
             openPlanetPopup(planetId);
