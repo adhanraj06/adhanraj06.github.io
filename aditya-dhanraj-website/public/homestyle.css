@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: #2C3E50; /* Dark navy blue background */
+    color: #ECF0F1; /* Very light gray text for contrast */
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Nav Links */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    font-family: 'Markazi Text', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem; /* Larger text for emphasis */
+    text-decoration: none;
+    color: #ECF0F1; /* Light gray text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Soft shadow for text */
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+header nav ul li a:hover {
+    color: #1ABC9C; /* Teal color on hover */
+    transform: scale(1.1); /* Slightly increase size for interactive feel */
+    text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Soft teal glow effect on hover */
+}
+
+/* Active Link Style (Optional) */
+header nav ul li a.active {
+    color: #1ABC9C; /* Active link color */
+    text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Active link glow */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(135deg, #004d61, #001f3d); /* Deep Teal to Midnight Blue (Initial) */
+    animation: gradientChange 10s ease infinite; /* Animation to change the gradient */
+}
+
+/* Keyframes for the gradient change */
+@keyframes gradientChange {
+    0% {
+        background: linear-gradient(135deg, #004d61, #001f3d); /* Deep Teal to Midnight Blue */
+    }
+    25% {
+        background: linear-gradient(135deg, #6a1b9a, #0d47a1); /* Dark Purple to Deep Blue */
+    }
+    50% {
+        background: linear-gradient(135deg, #0288d1, #004d61); /* Ocean Blue to Teal */
+    }
+    75% {
+        background: linear-gradient(135deg, #007bb2, #00bfae); /* Vibrant Blue to Light Teal */
+    }
+    100% {
+        background: linear-gradient(135deg, #004d61, #001f3d); /* Deep Teal to Midnight Blue */
+    }
+}
+
+/* Particle style */
+.particle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    will-change: transform, opacity; /* Improve performance for animations */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Profile Picture and Name */
+.profile-info {
+    position: relative;
+    z-index: 1;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.hero h1 {
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* About Button */
+.about-button-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.about-btn {
+    padding: 15px 30px;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 40px; /* Adjust the value as needed */
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Hide About Me section initially */
+.about-content {
+    font-family: 'Markazi Text', sans-serif;
+    display: none; /* Initially hidden */
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(240, 240, 240, 0.9); /* Light gray with slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
+    text-align: center;
+}
+
+/* Show the About Me section when it's active */
+.about-content.active {
+    display: block;
+}
+
+/* Interests Button */
+.interests-btn {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem;
+    gap: 10px;
+    padding: 10px 20px;
+    margin: 20px auto; /* Center the button horizontally */
+    background-color: #BDC3C7; /* Soft Gray */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.interests-btn:hover {
+    background-color: #9a9da0; /* Soft Gray */
+    transform: scale(1.05);
+}
+
+.interests-btn img.icon {
+    max-width: 20px; /* Size of the icon */
+    height: auto;
+}
+
+.interests-btn p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Buttons for interests */
+.button-container {
+    display: none;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center; /* Center buttons horizontally */
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 20px; /* Adds some padding around the buttons */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.button-container.active {
+    display: flex; /* Becomes visible when active */
+}
+
+/* Buttons in a row (Computer Science, Finance, Math) */
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the buttons */
+    gap: 20px; /* Spacing between the buttons */
+    width: 100%; /* Full width to allow centering */
+}
+
+.interest-btn { /* Same size for the other buttons and the "Other" button */
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    width: 200px; /* Same width for all buttons */
+    display: block;
+}
+
+.interest-btn:hover {
+    transform: scale(1.05);
+}
+
+.interest-btn img {
+    max-width: 40px;
+}
+
+.interest-btn p {
+    font-weight: bold;
+}
+
+.interests-heading {
+    display: none; 
+    text-align: center;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+.interests-heading.active {
+    display: block;
+}
+
+/* Initially hide all .interest-content sections */
+.interest-content {
+    display: none;
+}
+
+.interest-content.active {
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+    background-color: #ffffff; /* Crisp White */
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Markazi Text', sans-serif;
+    position: relative;
+    font-size: 16px;
+    color: #333;
+}
+
+.interest-content:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fun-fact-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    width: 200px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fun-fact-box:hover {
+    transform: scale(1.05);
+    background-color: #eceff1;
+}
+
+/* Info box visibility transition */
+.experience-box {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f0f8ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 10px auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* Make info box visible */
+.experience-box.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none; /* Initially hidden */
+}
+
+.hidden {
+    display: none;
+}
+
+.wide-pic {
+    width: 150px; /* Adjust the image size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Hide toggle buttons and content by default */
+.toggle-btn, .toggle-content {
+    display: none;
+}
+
+/* Show buttons when the section is active */
+#before-college.active .toggle-btn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Styling for the "Before College" content */
+#before-college-content.toggle-content.active {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for other content elements (everything else) */
+.toggle-content.active {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: white; /* Pure white background */
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* General Button Styling */
+.toggle-btn {
+    display: none; /* Hide buttons by default */
+}
+
+/* Keep the buttons visible by default */
+#sports-button.toggle-btn, #piano-button.toggle-btn {
+    display: flex !important; /* Ensure the button stays visible */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    width: auto;
+}
+
+/* Styling for the buttons when not clicked */
+#sports-button, #piano-button {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid #ddd; /* Light border */
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem; /* Same font size as the interest button */
+    font-weight: bold; /* Bold text */
+    gap: 10px; /* Spacing between image and text */
+    padding: 12px 20px; /* Slightly larger padding */
+    margin: 15px auto; /* Center the button horizontally */
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Smooth transform effect */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px; /* Same width for all buttons */
+}
+
+/* Add margin for centering buttons on the page */
+#sports-button, #piano-button {
+    margin: 10px auto;
+    display: block;
+}
+
+/* Hover effect for buttons */
+#sports-button:hover, #piano-button:hover {
+    background-color: #AAB7C4; /* Slightly darker gray on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Active button styling for the "Before College" section toggle button */
+#before-college .toggle-btn#before-college-btn.active {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem; /* Larger font size for Before College */
+    gap: 10px;
+    padding: 12px 24px; /* Larger padding for Before College */
+    margin: 25px auto; /* Center the button horizontally with more margin */
+    background-color: #BDC3C7; /* Soft Gray */
+    border: none;
+    border-radius: 10px; /* Larger border radius for Before College */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Active button styling for section toggle buttons (smaller) */
+#before-college .toggle-btn:not(#before-college-btn).active {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid #ddd; /* Light border */
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.25rem; /* Same font size as the interest button */
+    font-weight: bold; /* Bold text */
+    gap: 10px; /* Spacing between image and text */
+    padding: 12px 20px; /* Slightly larger padding */
+    margin: 15px auto; /* Center the button horizontally */
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Smooth transform effect */
+    text-align: center;
+    width: 200px; /* Same width for all buttons */
+}
+
+/* Image icon styling */
+#before-college .toggle-btn .icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    object-fit: contain; /* Ensure the image keeps aspect ratio */
+}
+
+/* Image icon styling for both buttons */
+.toggle-btn .icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    object-fit: contain; /* Ensure the image keeps aspect ratio */
+}
+
+/* Hover effect for buttons */
+#before-college .toggle-btn:not(#before-college-btn):hover {
+    background-color: #AAB7C4; /* Slightly darker gray on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Hover effect for buttons */
+#before-college .toggle-btn#before-college-btn:hover {
+    background-color: #AAB7C4; /* Slightly darker gray on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* UIL Competitions button container (reuse interest button styles) */
+#uil-competitions-container {
+    display: none; /* Initially hidden */
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center; /* Center buttons horizontally */
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Markazi Text', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 20px; /* Adds some padding around the buttons */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    position: relative;
+}
+
+#uil-competitions-container.active {
+    display: flex; /* Becomes visible when active */
+    position: relative;
+}
+
+/* General styling for floating images */
+.floating-image {
+    position: absolute; /* Allows absolute positioning */
+    z-index: 1; /* Ensure the image floats above the text */
+}
+
+/* Adjust the images' position */
+.floating-image img {
+    width: 20%; /* Adjust the image size */
+    height: auto;
+}
+
+/* Ensure parent containers have relative positioning and add borders for debugging */
+#number-sense-content, #mathematics-content, #calculator-applications-content, #computer-science-content {
+    position: relative; /* Necessary for absolute positioning inside them */
+}
+
+/* Optional: Add hover effect to images */
+.floating-image img:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header nav ul {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-content {
+        padding: 20px;
+    }
+
+    .resume h2 {
+        font-size: 1.6rem;
+    }
+    
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: relative;       /* Position relative to the container */
+    width: 100%;              /* Make it span the full width */
+    z-index: 999;             /* Ensure it's above other content */
+    margin-top: auto;         /* This ensures the footer is pushed to the bottom when content is short */
+}
+
+footer p {
+    font-family: 'Markazi Text', serif;
+    font-size: 1.5rem;
+    margin: 0;  /* Remove any default margin */
+}
