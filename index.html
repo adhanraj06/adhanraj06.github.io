@@ -38,7 +38,7 @@
 
     <section class="about">
         <div class="about-button-container">
-            <button class="about-btn">
+            <button class="about-btn" onclick="trackButtonClick('Home - About Me')">
                 About Me
             </button>
         </div>
@@ -47,7 +47,7 @@
             <h1 style="font-size: 2rem;">Bachelor of Science in Computer Science</h1>
             <div class="image-container">
               <a href="https://linkedin.com/in/adhanraj" target="_blank">
-                  <button class="social-btn left-btn">
+                  <button class="social-btn left-btn" onclick="trackButtonClick('Home - LinkedIn')">
                       <img src="images/linkedin.jpg" alt="LinkedIn">
                   </button>
               </a>
@@ -55,33 +55,33 @@
               <img src="images/ut-austin.jpg" alt="UT Austin" class="wide-pic" style="margin-top: 20px;">
               
               <a href="https://github.com/adhanraj06" target="_blank">
-                  <button class="social-btn right-btn">
+                  <button class="social-btn right-btn" onclick="trackButtonClick('Home - GitHub')">
                       <img src="images/github.jpg" alt="GitHub">
                   </button>
               </a>
             </div>
             
             <!-- Button to show all content -->
-            <button id="interests-btn" class="interests-btn">
+            <button id="interests-btn" class="interests-btn" onclick="trackButtonClick('Home - Interests')">
                 <div>Interests</div>
             </button>
             
             <div class="button-container">
                 <div class="button-row">
-                    <button class="interest-btn" id="computer-science-btn">
+                    <button class="interest-btn" id="computer-science-btn" onclick="trackButtonClick('Home - Computer Science')">
                         <img src="images/cs.jpg" alt="CS Icon">
                         <p>Computer Science</p>
                     </button>
                     <button class="interest-btn" id="finance-btn">
-                        <img src="images/finance.jpg" alt="Finance Icon">
+                        <img src="images/finance.jpg" alt="Finance Icon" onclick="trackButtonClick('Home - Finance')">
                         <p>Finance</p>
                     </button>
-                    <button class="interest-btn" id="mathematics-btn">
+                    <button class="interest-btn" id="mathematics-btn" onclick="trackButtonClick('Home - Mathematics')">
                         <img src="images/math.jpg" alt="Math Icon">
                         <p>Mathematics</p>
                     </button>
                 </div>
-                <button class="interest-btn" id="other-btn" style="margin-bottom: 5px;">
+                <button class="interest-btn" id="other-btn" style="margin-bottom: 5px;" onclick="trackButtonClick('Home - Other')">
                     <p>Other</p>
                 </button>                
             </div>            
@@ -106,7 +106,7 @@
             <div id="finance-content" class="interest-content" style="font-size: 1.2rem;">
                 <ul>
                     <!-- Fun Fact Box -->
-                    <div id="fun-fact-box" class="fun-fact-box" style="margin-top: -5px ">
+                    <div id="fun-fact-box" class="fun-fact-box" style="margin-top: -5px">
                         Fun Fact
                     </div>
 
@@ -171,10 +171,10 @@
                     <div>Spanish</div>
                     <div>Hindi</div>
                     <div>
-                        <button id="sports-button" class="toggle-btn">
-                            <img src="images/soccer.jpg" alt="Soccer Icon" class="icon"> <!-- First Soccer Image -->
+                        <button id="sports-button" class="toggle-btn" onclick="trackButtonClick('Home - Football')">
+                            <img src="images/soccer.jpg" alt="Football Icon" class="icon"> <!-- First Football Image -->
                             <p>Football</p>
-                            <img src="images/soccer.jpg" alt="Soccer Icon" class="icon"> <!-- Second Soccer Image -->
+                            <img src="images/soccer.jpg" alt="Football Icon" class="icon"> <!-- Second Football Image -->
                         </button>
                         
                         <div id="sports-info" class="experience-box" style="display: none; margin-top: -5px; margin-bottom: 25px;">
@@ -192,10 +192,10 @@
                         </div>
                     </div>
                     <div>
-                        <button id="piano-button" class="toggle-btn">
-                            <img src="images/piano.jpg" alt="Piano Icon" class="icon"> <!-- First Soccer Image -->
+                        <button id="piano-button" class="toggle-btn" onclick="trackButtonClick('Home - Piano')">
+                            <img src="images/piano.jpg" alt="Piano Icon" class="icon"> <!-- First Piano Image -->
                             <p>Piano</p>
-                            <img src="images/piano.jpg" alt="Piano Icon" class="icon"> <!-- Second Soccer Image -->
+                            <img src="images/piano.jpg" alt="Piano Icon" class="icon"> <!-- Second Piano Image -->
                         </button>
                         <div id="piano-info" class="experience-box" style="display: none; margin-top: -5px;">
                             Been Playing Piano for the Past <span id="years-playing-piano"></span> Years
@@ -229,12 +229,12 @@
             
             <!-- Before College Section -->
             <div id="before-college">
-                <button id="before-college-btn" class="toggle-btn">Before College</button>
+                <button id="before-college-btn" class="toggle-btn"  onclick="trackButtonClick('Home - Before College')">Before College</button>
                 <div id="before-college-content" class="toggle-content">
                 <ul>
                     <div style="font-size: 1.5rem; margin-top: 10px; margin-bottom: 5px">Salutatorian of Walnut Grove High School (Prosper, TX) C/O 2024</div>
                     <!-- AP Courses Button -->
-                    <button class="toggle-btn" id="ap-courses-btn">
+                    <button class="toggle-btn" id="ap-courses-btn" onclick="trackButtonClick('Home - AP Courses')">
                         <img src="images/books.jpg" alt="Books Icon" class="icon"> <!-- Image icon -->
                         <p>14 AP Courses</p>
                         <img src="images/books.jpg" alt="Books Icon" class="icon"> <!-- Image icon -->
@@ -275,7 +275,7 @@
                     </div>
 
                     <!-- Honor Societies Button -->
-                    <button class="toggle-btn" id="honor-societies-btn">
+                    <button class="toggle-btn" id="honor-societies-btn" onclick="trackButtonClick('Home - Honor Societies')">
                         <img src="images/societies.jpg" alt="Societies Icon" class="icon"> <!-- Image icon -->
                         <p>4 Honor Societies</p>
                         <img src="images/societies.jpg" alt="Societies Icon" class="icon"> <!-- Image icon -->
@@ -300,7 +300,7 @@
                     </div>
 
                     <!-- Student Government Button -->
-                    <button class="toggle-btn" id="student-gov-btn">
+                    <button class="toggle-btn" id="student-gov-btn" onclick="trackButtonClick('Home - Student Gov')">
                         <img src="images/government.jpg" alt="Government Icon" class="icon"> <!-- Image icon -->
                         <p>3 Student Government Roles</p>
                         <img src="images/government.jpg" alt="Government Icon" class="icon"> <!-- Image icon -->
@@ -318,7 +318,7 @@
                     </div>
 
                     <!-- UIL Competitions Button -->
-                    <button class="toggle-btn" id="uil-competitions-btn">
+                    <button class="toggle-btn" id="uil-competitions-btn" onclick="trackButtonClick('Home - UIL Competitions')">
                         <img src="images/competitions.jpg" alt="Competitions Icon" class="icon"> <!-- Image icon -->
                         <p>4 UIL Competitions</p>
                         <img src="images/competitions.jpg" alt="Competitions Icon" class="icon"> <!-- Image icon -->
