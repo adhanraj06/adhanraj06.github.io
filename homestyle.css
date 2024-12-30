@@ -173,12 +173,16 @@ header nav ul li a.active {
     display: block;
 }
 
-/* Positioning the LinkedIn and GitHub buttons */
+/* Center the image and buttons horizontally */
 .image-container {
     position: relative;
     display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Align the content vertically */
+    gap: 20px; /* Space between the buttons and the image */
 }
 
+/* Styling the social buttons */
 .social-btn {
     background: none;
     border: none;
@@ -186,23 +190,24 @@ header nav ul li a.active {
     cursor: pointer;
 }
 
+/* Style for social button images */
+.social-btn img {
+    width: 40px;
+    height: 40px;
+}
+
 .left-btn {
     position: absolute;
-    left: 10px;
-    top: 50%;
+    left: 210px;
+    top: 60%;
     transform: translateY(-50%);
 }
 
 .right-btn {
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 210px;
+    top: 60%;
     transform: translateY(-50%);
-}
-
-.social-btn img {
-    width: 40px;
-    height: 40px;
 }
 
 /* Interests Button */
