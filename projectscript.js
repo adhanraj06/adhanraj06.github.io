@@ -37,9 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     orbitingPlanets.forEach(planet => {
         planet.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent vapor trail or other elements from intercepting clicks
-            trackButtonClick(planetId);
+            
             // Get the planet ID from the planet's ID
             const planetId = planet.id; // e.g., planet1
+            trackButtonClick(planetId);
             openPlanetPopup(planetId);
         });
 
