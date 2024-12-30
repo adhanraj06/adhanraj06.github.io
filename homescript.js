@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('fun-fact-box').addEventListener('click', function () {
         const experienceBox = document.getElementById('trading-experience-box');
-    
+        trackButtonClick("Home - Fun Fact");
         // Check current visibility state
         if (!experienceBox.classList.contains('visible')) {
             // Show the box with a flip effect
@@ -340,4 +340,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    function trackButtonClick(buttonName) {
+        gtag('event', 'button_click', {
+            'button_name': buttonName
+        });
+    }
 });
