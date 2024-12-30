@@ -16,7 +16,7 @@ function trackButtonClick(buttonName) {
     gtag('event', 'button_click', {
         'event_category': 'button_clicks',
         'event_action': 'click',
-        'event_label': buttonName  // Dynamically passed button name
+        'event_name': buttonName  // Dynamically passed button name
     });
 }
 
