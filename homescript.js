@@ -343,7 +343,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function trackButtonClick(buttonName) {
         gtag('event', 'button_click', {
-            'button_name': buttonName
+            'event_category': 'button_clicks',
+            'event_action': 'click',
+            'event_label': buttonName  // Dynamically passed button name
         });
     }
 });
