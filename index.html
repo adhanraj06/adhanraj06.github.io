@@ -61,7 +61,6 @@
               </a>
             </div>
             
-            <!-- Button to show all content -->
             <button id="interests-btn" class="interests-btn" onclick="trackButtonClick('Home - Interests')">
                 <div>Interests</div>
             </button>
@@ -86,7 +85,6 @@
                 </button>                
             </div>            
             
-            <!-- Content that will appear when buttons are clicked -->
             <div id="computer-science-content" class="interest-content" style="font-size: 1.2rem;">
                 <ul>
                     <div>Artificial Intelligence (AI)</div>
@@ -385,10 +383,17 @@
     </footer>
 
     <script>
+        function trackButtonClick(buttonName) {
+            gtag('event', 'button_click', {
+                'button_name': buttonName
+            });
+        }
+    </script>
+    
+    <script>
         const currentYear = new Date().getFullYear();
         document.getElementById('current-year').textContent = currentYear;
 
-        // Assuming you started playing the piano in 2012
         const startYearPiano = 2012;
         const startYearFootball = 2012;
         const yearsPlayingPiano = currentYear - startYearPiano;
