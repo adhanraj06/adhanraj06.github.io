@@ -59,9 +59,9 @@ function openPlanetPopup(planetId) {
     if (data) {
         // Update popup content dynamically
         planetContent.innerHTML = `
-            <h1 style="color: white;">${data.title}</h1>
-            <p style="font-size: 1.5rem; color: white; margin-top: -20px;">${data.timeframe}</p>
-            <p style="font-size: 1.2rem; color: white; margin-top: -15px;">${data.content}</p>
+        <h1 style="color: white;">${data.title}</h1>
+        <p style="font-size: 1.5rem; color: white; margin-top: ${window.innerWidth <= 768 ? '0px' : '-20px'};">${data.timeframe}</p>
+        <p style="font-size: 1.2rem; color: white; margin-top: ${window.innerWidth <= 768 ? '0px' : '-15px'}; line-height: 2;">${data.content}</p>
         `;
         
         // Display the popup
@@ -81,7 +81,7 @@ function openPlanetPopup(planetId) {
             if (!additionalParagraph) {
                 additionalParagraph = document.createElement('p');
                 additionalParagraph.className = 'planet-content additional'; // Add a unique class
-                additionalParagraph.style.cssText = 'font-size: 1.2rem; color: white; margin-top: -15px; line-height: 3;';
+                additionalParagraph.style.cssText = 'font-size: 1.2rem; color: white; margin-top: -15px; line-height: 2;';
                 additionalParagraph.innerHTML = `
                     I selected XAU/USD, NDQ, and BTC/USD because of their liquidity and representation 
                     of broader market conditions (XAU/USD being a hedge against economic and/or geopolitical 
@@ -227,4 +227,3 @@ function swayUFO() {
 
 // Start the swaying animation
 swayUFO();
-
