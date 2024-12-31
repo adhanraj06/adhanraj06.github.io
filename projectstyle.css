@@ -863,8 +863,8 @@ footer p {
 
 .ufo-lower {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 53%;
+    left: 52%;
     z-index: 1;
     -webkit-transform: rotateX(70deg);
     -moz-transform: rotateX(70deg);
@@ -1147,4 +1147,262 @@ tr:nth-child(even) {
 /* Remove border for the last row */
 tr:last-child td {
     border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    
+    /* Adjust popup dimensions and padding for smaller screens */
+    .planet-popup {
+        width: 90vw; /* Make the popup almost full screen width */
+        height: 70vh; /* Allow height to adjust based on content */
+        padding: 15px; /* Reduce padding */
+        border-radius: 8px; /* Slightly smaller border radius */
+    }
+
+    /* Adjust popup content styles */
+    .planet-content h1 {
+        font-size: 2rem; /* Reduce font size */
+        margin-bottom: 15px; /* Adjust margin */
+        margin-top: 15px; /* Adjust margin */
+    }
+
+    .planet-content p {
+        line-height: 1.8; /* Adjust line height for readability */
+    }
+
+    /* Scale down the close buttons */
+    .close-btn-left,
+    .close-btn-right {
+        font-size: 35px; /* Reduce font size */
+        top: 10px; /* Adjust position */
+    }
+
+    /* Adjust the link box */
+    .planet1link-box {
+        font-size: 1.2rem; /* Reduce font size */
+        width: 80%; /* Adjust width to fit smaller screens */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    .planet-container-header {
+        font-size: 1rem; /* Reduce font size */
+        padding: 3px; /* Adjust padding */
+        width: 25px; /* Reduce button size */
+        height: 25px; /* Reduce button size */
+        font-size: 1rem; /* Adjust font size */
+        margin: 10px 0; /* Adjust margin */
+    }
+
+    /* Scale down the central object */
+    .central-object {
+        width: 50px; /* Smaller width */
+        height: 50px; /* Smaller height */
+        border: 4px solid #fff; /* Adjust border size */
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Scale down the accretion disk */
+    .accretion-disk {
+        width: 75px; /* Smaller size */
+        height: 75px;
+        margin-top: -62.5px; /* Adjust centering */
+        margin-left: -62.5px;
+        animation: accretion-spin 4s infinite linear; /* Slightly slower spin */
+    }
+
+    /* Adjust the planet size */
+    .planet {
+        width: 15px; /* Smaller planets */
+        height: 15px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(0, 255, 255, 0.3),
+                    0 0 40px rgba(0, 255, 255, 0.1),
+                    0 0 60px rgba(255, 165, 0, 0.4),
+                    0 0 80px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Hover effect remains responsive */
+    .planet:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(0, 255, 255, 0.5),
+                    0 0 70px rgba(0, 255, 255, 0.3),
+                    0 0 90px rgba(255, 165, 0, 0.6),
+                    0 0 110px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Adjust vapor trail size */
+    .planet::after {
+        width: 110%; /* Slightly larger than planet */
+        height: 110%; /* Slightly larger than planet */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    }
+
+    #planet1 {
+        width: 15px; /* Smaller size */
+        height: 15px;
+    }
+
+    /* Planet 2 */
+    #planet2 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 3 */
+    #planet3 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 4 */
+    #planet4 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 5 */
+    #planet5 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 6 */
+    #planet6 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 7 */
+    #planet7 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 8 */
+    #planet8 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* General Styles for Vapor Trails */
+    .trail {
+        width: 10px; /* Smaller size for mobile */
+        height: 10px;
+        opacity: 0.4; /* Slightly less opacity for a subtler effect */
+    }
+
+    /* Modify the animation duration for smoother movement */
+    .trail {
+        animation: trail-fade 2s linear forwards, trail-move 3s cubic-bezier(0.42, 0, 0.58, 1) infinite; /* Slow down the movement */
+    }
+
+    /* Orbit Animations */
+    @keyframes orbit-1 {
+        0% {
+            transform: rotate(0deg) translateX(80px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(80px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-2 {
+        0% {
+            transform: rotate(180deg) translateX(80px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(540deg) translateX(80px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-3 {
+        0% {
+            transform: rotate(30deg) translateX(130px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(390deg) translateX(130px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-4 {
+        0% {
+            transform: rotate(210deg) translateX(130px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(570deg) translateX(130px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-5 {
+        0% {
+            transform: rotate(60deg) translateX(180px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(420deg) translateX(180px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-6 {
+        0% {
+            transform: rotate(240deg) translateX(180px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(600deg) translateX(180px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-7 {
+        0% {
+            transform: rotate(90deg) translateX(230px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(450deg) translateX(230px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-8 {
+        0% {
+            transform: rotate(270deg) translateX(230px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(630deg) translateX(230px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    table {
+        width: 100%; 
+        font-size: 11px; /* Smaller font size for mobile */
+        padding: 10px;
+        transform: rotate(90deg); /* Rotate the table 90 degrees */
+        transform-origin: top left; /* Ensures the rotation is from the top left corner */
+        margin: 20px auto; /* Center horizontally after rotation */
+    }
+
+    td, th {
+        padding: 12px; /* Adjusted padding for smaller screens */
+    }
+
+    /* Disable hover effect on mobile */
+    td:hover {
+        box-shadow: none; /* Disable hover effect on mobile */
+        color: #ccc; /* Keep color on mobile */
+    }
+
+    tr:hover {
+        background-color: #2a2a2a; /* Adjust background color for mobile hover */
+        transform: none; /* Remove scale effect on mobile */
+    }
+
+    /* Adjustments for header on mobile */
+    th {
+        padding: 12px; /* Adjust padding for mobile */
+        font-size: 11px; /* Smaller font size for mobile */
+    }
+
+    /* Adjustments for table data on mobile */
+    td {
+        padding: 12px; /* Adjusted padding for mobile */
+        font-size: 11px; /* Smaller font size for mobile */
+    }
+
 }
