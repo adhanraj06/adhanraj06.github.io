@@ -52,20 +52,20 @@
         <div class="about-content">
             <h1 style="font-size: 2rem;">Bachelor of Science in Computer Science</h1>
             <div class="image-container">
-              <a href="https://linkedin.com/in/adhanraj" target="_blank">
-                  <button class="social-btn left-btn" onclick="trackButtonClick('Home - LinkedIn')">
-                      <img src="images/linkedin.jpg" alt="LinkedIn">
-                  </button>
-              </a>
-              
-              <img src="images/ut-austin.jpg" alt="UT Austin" class="wide-pic" style="margin-top: 20px;">
-              
-              <a href="https://github.com/adhanraj06" target="_blank">
-                  <button class="social-btn right-btn" onclick="trackButtonClick('Home - GitHub')">
-                      <img src="images/github.jpg" alt="GitHub">
-                  </button>
-              </a>
-            </div>
+                <a href="https://linkedin.com/in/adhanraj" target="_blank">
+                    <button class="social-btn left-btn" onclick="trackButtonClick('Home - LinkedIn')">
+                        <img src="images/linkedin.jpg" alt="LinkedIn">
+                    </button>
+                </a>
+                
+                <img src="images/ut-austin.jpg" alt="UT Austin" class="wide-pic" style="margin-top: 20px;">
+                
+                <a href="https://github.com/adhanraj06" target="_blank">
+                    <button class="social-btn right-btn" onclick="trackButtonClick('Home - GitHub')">
+                        <img src="images/github.jpg" alt="GitHub">
+                    </button>
+                </a>
+            </div>            
             
             <button id="interests-btn" class="interests-btn" onclick="trackButtonClick('Home - Interests')">
                 <div>Interests</div>
@@ -91,21 +91,23 @@
                 </button>                
             </div>            
             
-            <div id="computer-science-content" class="interest-content" style="font-size: 1.2rem;">
-                <ul>
+            <div id="computer-science-content" class="interest-content style="font-size: 1.2rem;"">
+                <div class="icon-container">
+                    <img src="images/ai.jpg" alt="AI Icon" style="width: 70%; height: auto;">
+                </div>
+                <div class="text-content">
                     <div>Artificial Intelligence (AI)</div>
+                    <br>
                     <div>Machine Learning (ML)</div>
+                    <br>
                     <div>Python</div>
+                    <br>
                     <div>Java</div>
-                    <img src="images/more.jpg" alt="More" style="width: 3%; margin-top: 10px;">
-                </ul>
-                <div class="floating-image" style="position: absolute; left: -17%; top: 17%; z-index: 1;">
-                    <img src="images/ai.jpg" alt="AI Icon" style="width: 22%; height: auto;">
-                </div>  
-                <div class="floating-image" style="position: absolute; right: -17%; top: 17%; z-index: 1;">
-                    <img src="images/ml.jpg" alt="ML Icon" style="width: 22%; height: auto;">
-                </div>  
-            </div>            
+                </div>
+                <div class="icon-container">
+                    <img src="images/ml.jpg" alt="ML Icon" style="width: 70%; height: auto;">
+                </div>
+            </div>                     
             
             <div id="finance-content" class="interest-content" style="font-size: 1.2rem;">
                 <ul>
@@ -119,61 +121,102 @@
                         Started Trading Equities and Derivatives in February of 2024<br>
                         +<br>
                         Began Helping My Father Manage a Quarter-of-a-Million Dollar Portfolio in July of 2024
+                    </div>        
+                    
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/trading.jpg" alt="Trading Icon" style="width: 70%; height: auto;">
+                        </div>
+                        <div class="text-content" style="margin: 0 10px;">
+                            <div>Markets (Equities, Options, Commodities, Futures, Crypto, etc.)</div>
+                            <br>
+                            <div>Trading & Investing</div>
+                            <br>
+                            <div>Alpha Generation</div>
+                            <br>
+                            <div>Portfolio Optimization</div>
+                            <br>
+                            <div>High-Frequency Trading (HFT)</div>
+                            <br>
+                            <div>Market Making</div>
+                        </div>
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/optimization.jpg" alt="Optimization Icon" style="width: 70%; height: auto;">
+                        </div>
+                    </div>
+                    
+                    <br><br><br>
+
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/m&a.jpg" alt="M&A Icon" style="width: 70%; height: auto;">
+                        </div>
+                        <div class="text-content" style="margin: 0 10px;">
+                            <div>Strategic Advisory</div>
+                            <br>
+                            <div>Mergers & Acquisitions (M&A)</div>
+                            <br>
+                            <div>Initial Public Offerings (IPOs)</div>
+                            <br>
+                            <div>Financings & Underwriting</div>
+                            <br>
+                            <div>Valuation Modeling</div>
+                            <br>
+                            <div>Accounting</div>
+                        </div>
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/accounting.jpg" alt="Accounting Icon" style="width: 70%; height: auto;">
+                        </div>
                     </div>                    
-                    <div>Markets (Equities, Options, Commodities, Futures, Crypto, etc.)</div>
-                    <div>Trading & Investing</div>
-                    <div>Alpha Generation</div>
-                    <div>Portfolio Optimization</div>
-                    <div>High-Frequency Trading (HFT)</div>
-                    <div>Market Making</div>
-                    <div>Strategic Advisory</div>
-                    <div>Mergers & Acquisitions (M&A)</div>
-                    <div>Initial Public Offerings (IPOs)</div>
-                    <div>Financings & Underwriting</div>
-                    <div>Valuation Modeling</div>
-                    <div>Accounting</div>
-                    <img src="images/more.jpg" alt="More" style="width: 3%; margin-top: 10px;">
-                    <div class="floating-image" style="position: absolute; left: -22%; top: 40%; z-index: 1;">
-                        <img src="images/trading.jpg" alt="Trading Icon" style="width: 18%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; right: -22%; top: 40%; z-index: 1;">
-                        <img src="images/optimization.jpg" alt="Optimization Icon" style="width: 18%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; left: 8%; top: 73%; z-index: 1;">
-                        <img src="images/m&a.jpg" alt="M&A Icon" style="width: 35%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; right: -8%; top: 72%; z-index: 1;">
-                        <img src="images/accounting.jpg" alt="Acounting Icon" style="width: 18%; height: auto;">
-                    </div>  
                 </ul>
             </div>            
             
             <div id="mathematics-content" class="interest-content" style="font-size: 1.2rem;">
+                <div class="floating-image"> 
+                    <img src="images/regression.jpg" alt="Regression Icon" style="width: 70%; height: auto;">
+                </div>  
                 <ul>
                     <div>Regression Analysis (e.g., OLS, L1/L2 Regularization, etc.)</div>
+                    <br>
                     <div>Time-Series Analysis</div>
+                    <br>
                     <div>Regime Modeling (e.g., HMMs, GMMs)</div>
+                    <br>
                     <div>Linear Algebra</div>
+                    <br>
                     <div>Stochastic Processes</div>
+                    <br>
                     <div>Partial Differential Equations (PDEs)</div>
+                    <br>
                     <div>Bayesian Statistics</div>
+                    <br>
                     <div>Pricing Models</div>
+                    <br>
                     <div>Monte Carlo Simulations</div>
-                    <img src="images/more.jpg" alt="More" style="width: 3%; margin-top: 10px;">
                 </ul>
-                <div class="floating-image" style="position: absolute; left: -20%; top: 33%; z-index: 1;">
-                    <img src="images/regression.jpg" alt="Regression Icon" style="width: 18%; height: auto;">
-                </div>  
-                <div class="floating-image" style="position: absolute; right: -20%; top: 33%; z-index: 1;">
-                    <img src="images/pms.jpg" alt="Pricing Models Icon" style="width: 18%; height: auto;">
+                <div class="floating-image"> 
+                    <img src="images/pms.jpg" alt="Pricing Models Icon" style="width: 70%; height: auto;">
                 </div>  
             </div>
             
             <!-- Other Interests Section -->
             <div id="other-content" class="interest-content" style="font-size: 1.2rem;">
                 <ul>
-                    <div>Spanish</div>
-                    <div>Hindi</div>
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/languages.jpg" alt="Languages Icon" style="width: 70%; height: auto;">
+                        </div>
+                        <div class="text-content" style="margin: 0 10px;">
+                            <div>Spanish</div>
+                            <br>
+                            <div>Hindi</div>
+                            <br>
+                            <div>3D Modeling & Simulation (AutoCAD & ANSYS Fluent)</div>
+                        </div>
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/3dmodeling.jpg" alt="3D Modeling Icon" style="width: 70%; height: auto;">
+                        </div>
+                    </div>                    
                     <div>
                         <button id="sports-button" class="toggle-btn" onclick="trackButtonClick('Home - Football')">
                             <img src="images/soccer.jpg" alt="Football Icon" class="icon"> <!-- First Football Image -->
@@ -211,23 +254,21 @@
                             5-Year National Piano Winner from Guild
                         </div>
                     </div>
-                    <div>3D Modeling & Simulation (AutoCAD & ANSYS Fluent)</div>
-                    <div>Poker</div>
-                    <div>Chess</div>
-                    <div>Video Games (Xbox)</div>
-                    <img src="images/more.jpg" alt="More" style="width: 3%; margin-top: 10px;">
-                    <div class="floating-image" style="position: absolute; left: -18%; top: 5%; z-index: 1;">
-                        <img src="images/languages.jpg" alt="Languages Icon" style="width: 10%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; right: -18%; top: 5%; z-index: 1;">
-                        <img src="images/xbox.jpg" alt="Xbox Icon" style="width: 10%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; left: -18%; top: 36%; z-index: 1;">
-                        <img src="images/poker.jpg" alt="Poker Icon" style="width: 10%; height: auto;">
-                    </div>  
-                    <div class="floating-image" style="position: absolute; right: -18%; top: 36%; z-index: 1;">
-                        <img src="images/3dmodeling.jpg" alt="3D Modeling Icon" style="width: 10%; height: auto;">
-                    </div>  
+                    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/poker.jpg" alt="Poker Icon" style="width: 70%; height: auto;">
+                        </div>
+                        <div class="text-content" style="margin: 0 10px;">
+                            <div>Poker</div>
+                            <br>
+                            <div>Chess</div>
+                            <br>
+                            <div>Video Games (Xbox)</div>
+                        </div>
+                        <div class="icon-container" style="margin: 0 10px;">
+                            <img src="images/xbox.jpg" alt="Xbox Icon" style="width: 70%; height: auto;">
+                        </div>
+                    </div>                    
                 </ul>
             </div>
             
@@ -244,38 +285,69 @@
                         <img src="images/books.jpg" alt="Books Icon" class="icon"> <!-- Image icon -->
                     </button>                    
                     <div id="ap-courses-content" class="toggle-content" style="font-size: 1.2rem;">
-                        <div>AP Physics C: Mechanics</div>
-                        <div>AP Physics C: Electricity & Magnetism</div>
-                        <div>AP Calculus BC</div>
-                        <div>AP Macroeconomics</div>
-                        <div>AP Statistics</div>
-                        <div>AP Computer Science A</div>
-                        <div>AP English Literature and Composition</div>
-                        <div>AP United States Government & Politics</div>
-                        <div>AP Calculus AB</div>
-                        <div>AP Physics I</div>
-                        <div>AP English Language and Composition</div>
-                        <div>AP United States History</div>
-                        <div>AP World History: Modern</div>
-                        <div>AP Human Geography</div>
-                        <div class="floating-image" style="position: absolute; left: -17%; top: 10%; z-index: 1;">
-                            <img src="images/physics.jpg" alt="Physics Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: -17%; top: 10%; z-index: 1;">
-                            <img src="images/calculus.jpg" alt="Calculus Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; left: -17%; top: 40%; z-index: 1;">
-                            <img src="images/statistics.jpg" alt="Statistics Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: -17%; top: 40%; z-index: 1;">
-                            <img src="images/macroeconomics.jpg" alt="Macroeconomics Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; left: -17%; top: 70%; z-index: 1;">
-                            <img src="images/history.jpg" alt="History Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: -17%; top: 70%; z-index: 1;">
-                            <img src="images/english.jpg" alt="English Icon" style="width: 12%; height: auto;">
-                        </div>  
+                        
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/physics.jpg" alt="Physics Icon" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>AP Physics C: Mechanics</div>
+                                <br>
+                                <div>AP Physics C: Electricity & Magnetism</div>
+                                <br>
+                                <div>AP Physics I</div>
+                                <br>
+                                <div>AP Calculus BC</div>
+                                <br>
+                                <div>AP Calculus AB</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/calculus.jpg" alt="Calculus Icon" style="width: 70%; height: auto;">
+                            </div>
+                        </div>               
+                        
+                        <br><br>
+
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/statistics.jpg" alt="Statistics Icon" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>AP Statistics</div>
+                                <br>
+                                <div>AP Computer Science A</div>
+                                <br>
+                                <div>AP Macroeconomics</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/macroeconomics.jpg" alt="Macroeconomics Icon" style="width: 70%; height: auto;">
+                            </div>
+                        </div>                        
+                        
+                        <br>
+
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/english.jpg" alt="English Icon" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>AP English Language and Composition</div>
+                                <br>
+                                <div>AP English Literature and Composition</div>
+                                <br>
+                                <div>AP United States Government & Politics</div>
+                                <br>
+                                <div>AP United States History</div>
+                                <br>
+                                <div>AP World History: Modern</div>
+                                <br>
+                                <div>AP Human Geography</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/history.jpg" alt="History Icon" style="width: 70%; height: auto;">
+                            </div>
+                        </div>                        
+
                     </div>
 
                     <!-- Honor Societies Button -->
@@ -285,22 +357,35 @@
                         <img src="images/societies.jpg" alt="Societies Icon" class="icon"> <!-- Image icon -->
                     </button>
                     <div id="honor-societies-content" class="toggle-content" style="font-size: 1.2rem;">
-                        <div>Mu Alpha Theta Honor Society</div>
-                        <div>National Honor Society</div>
-                        <div>Science National Honor Society</div>
-                        <div>National Technical Honor Society</div>
-                        <div class="floating-image" style="position: absolute; left: -18%; top: 21%; z-index: 1;">
-                            <img src="images/matheta.jpg" alt="Mu Alpha Theta Icon" style="width: 15%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; left: -43%; top: 13%; z-index: 1;">
-                            <img src="images/nhs.jpg" alt="NHS Icon" style="width: 8%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: 8%; top: 20%; z-index: 1;">
-                            <img src="images/sciencenhs.jpg" alt="Science NHS Icon" style="width: 23%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: -7%; top: 11%; z-index: 1;">
-                            <img src="images/nths.jpg" alt="NTHS Icon" style="width: 16.5%; height: auto;">
-                        </div>  
+                        
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/matheta.jpg" alt="Mu Alpha Theta Icon" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>Mu Alpha Theta Honor Society</div>
+                                <br>
+                                <div>National Honor Society</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/nhs.jpg" alt="NHS Icon" style="width: 75%; height: auto;">
+                            </div>
+                        </div>                        
+
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/sciencenhs.jpg" alt="Science NHS Icon" style="width: 65%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>Science National Honor Society</div>
+                                <br>
+                                <div>National Technical Honor Society</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/nths.jpg" alt="NTHS Icon" style="width: 50%; height: auto;">
+                            </div>
+                        </div>                        
+
                     </div>
 
                     <!-- Student Government Button -->
@@ -310,15 +395,23 @@
                         <img src="images/government.jpg" alt="Government Icon" class="icon"> <!-- Image icon -->
                     </button>     
                     <div id="student-gov-content" class="toggle-content" style="font-size: 1.2rem;">
-                        <div>Class of 2024 Treasurer</div>
-                        <div>Student Council</div>
-                        <div>Superintendent Leadership Advisory Council</div>
-                        <div class="floating-image" style="position: absolute; left: -55%; top: 9%; z-index: 1;">
-                            <img src="images/treasurer.jpg" alt="Treasurer Icon" style="width: 12%; height: auto;">
-                        </div>  
-                        <div class="floating-image" style="position: absolute; right: -27%; top: 9%; z-index: 1;">
-                            <img src="images/council.jpg" alt="Council Icon" style="width: 12%; height: auto;">
-                        </div>  
+                        
+                        <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/treasurer.jpg" alt="Treasurer Icon" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="text-content" style="margin: 0 10px;">
+                                <div>Class of 2024 Treasurer</div>
+                                <br>
+                                <div>Student Council</div>
+                                <br>
+                                <div>Superintendent Leadership Advisory Council</div>
+                            </div>
+                            <div class="icon-container" style="margin: 0 10px;">
+                                <img src="images/council.jpg" alt="Council Icon" style="width: 70%; height: auto;">
+                            </div>
+                        </div>
+                        
                     </div>
 
                     <!-- UIL Competitions Button -->
@@ -328,56 +421,65 @@
                         <img src="images/competitions.jpg" alt="Competitions Icon" class="icon"> <!-- Image icon -->
                     </button>     
                     <div id="uil-competitions-content" class="toggle-content" style="font-size: 1.2rem;">
+                        
                         <div id="number-sense-content" style="margin-bottom: 25px; font-family: Markazi Text; text-align: center;">
                             <div style="border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; width: 50%; display: block; margin-left: auto; margin-right: auto;"><strong>Number Sense</strong></div>
                             <p>Ten-Minute, 80-Question Mental Math Test</p>
+                            <br>
                             <a href="documents/nstest.pdf" target="_blank">View Sample Test & Key</a><br>
-                            <a href="https://www.uiltexas.org/academics/stem/number-sense" target="_blank">More Information</a>
-                            <div class="floating-image" style="position: absolute; left: -4%; top: 20%; z-index: 1;">
-                                <img src="images/mentalmath.jpg" alt="Mental Math Icon" style="width: 30%; height: auto;">
-                            </div>                            
+                            <br>
+                            <a href="https://www.uiltexas.org/academics/stem/number-sense" target="_blank">More Information</a>                         
                         </div>
                         
+                        <br><br>
+
                         <div id="mathematics-content" style="margin-bottom: 25px; font-family: Markazi Text; text-align: center;">
                             <div style="border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; width: 50%; display: block; margin-left: auto; margin-right: auto;">
                                 <strong>Mathematics</strong>
                             </div>
                             <p>40-Minute, Multiple-Choice Exam with 60 Questions on</p>
+                            <br>
                             <p>Algebra I, Geometry, Algebra II, Pre-Calculus, </p>
+                            <br>
                             <p>AP Calculus (BC), AP Statistics, and a Few Choice Topics</p>
+                            <br>
                             <a href="documents/mathtest.pdf" target="_blank">View Sample Test & Key</a><br>
+                            <br>
                             <a href="https://www.uiltexas.org/academics/stem/mathematics" target="_blank">More Information</a>
-                            <div class = "floating-image" style="position: absolute; right: -6%; top: 27%; z-index: 1;">
-                                <img src="images/mathematics.jpg" alt="Mathematics Icon" style="width: 30%; height: auto;">
-                            </div>
                         </div>
                         
+                        <br><br>
+
                         <div id="calculator-applications-content" style="margin-bottom: 25px; font-family: Markazi Text; text-align: center;">
                             <div style="border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; width: 50%; display: block; margin-left: auto; margin-right: auto;">
                                 <strong>Calculator Applications</strong>
                             </div>
                             <p>Thirty-Minute Test Comprised of 70 Mathematical Problems</p>
+                            <br>
                             <p>(35 Numerical, 21 Stated, 14 Geometry) </p>
+                            <br>
                             <p>Solved with a Handheld Calculator</p>
+                            <br>
                             <a href="documents/catest.pdf" target="_blank">View Sample Test & Key</a><br>
+                            <br>
                             <a href="https://www.uiltexas.org/academics/stem/calculator-applications" target="_blank">More Information</a>
-                            <div class = "floating-image" style="position: absolute; left: -25%; top: 20%; z-index: 1;">
-                                <img src="images/calculator.jpg" alt="Calculator Icon">
-                            </div>
                         </div>
                         
+                        <br><br>
+
                         <div id="computer-science-content" style="font-family: Markazi Text; text-align: center;">
                             <div style="border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 10px; width: 50%; display: block; margin-left: auto; margin-right: auto;">
                                 <strong>Computer Science</strong>
                             </div>
                             <p>45-Minute Written Exam and a</p>
+                            <br>
                             <p>Two-Hour, Team Programming Contest</p>
+                            <br>
                             <a href="documents/cstest.pdf" target="_blank">View Sample Test & Key</a><br>
+                            <br>
                             <a href="https://www.uiltexas.org/academics/stem/computer-science" target="_blank">More Information</a>
-                            <div class="floating-image" style="position: absolute; right: -23%; top: 15%; z-index: 1;">
-                                <img src="images/computer.jpg" alt="Computer Icon">
-                            </div>                            
-                        </div>                      
+                        </div>  
+
                     </div>
                 </ul>
             </div>
