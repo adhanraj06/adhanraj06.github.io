@@ -660,6 +660,11 @@ header nav ul li a.active {
         font-size: 1.2rem; /* Reduce the heading size for smaller screens */
         margin-top: 15px;
     }
+
+    /* Ensure text content inside flex containers adjusts */
+    .text-content {
+        font-size: 1rem; /* Reduce text size on mobile */
+    }
 }
 
 /* Footer */
