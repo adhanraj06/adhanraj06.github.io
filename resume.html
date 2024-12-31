@@ -9,7 +9,7 @@
     <meta name="title" property="og:title" content="Resume Page">
     <meta property="og:url" content="https://adhanraj06.github.io/resume">
     <link rel="canonical" href="https://adhanraj06.github.io/resume">
-    <meta name="author" content="Aditya Dhanraj"> 
+    <meta name="author" content="Aditya Dhanraj">
     <title>Resume Page</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
@@ -21,11 +21,8 @@
             box-sizing: border-box;
         }
 
-        /* Body */
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #525089;
             display: flex;
             flex-direction: column;
@@ -34,52 +31,44 @@
 
         /* Header */
         header {
-            background-color: #2C3E50; /* Dark navy blue background */
-            color: #ECF0F1; /* Very light gray text for contrast */
-            padding: 20px 0;
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            padding: 10px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Nav Links */
         header nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
         header nav ul li {
-            display: inline-block;
-            margin: 0 20px;
+            margin: 5px 15px;
         }
 
         header nav ul li a {
             font-family: 'Markazi Text', sans-serif;
             font-weight: bold;
-            font-size: 1.5rem; /* Larger text for emphasis */
+            font-size: 1.2rem;
             text-decoration: none;
-            color: #ECF0F1; /* Light gray text */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Soft shadow for text */
-            position: relative;
-            display: inline-block;
-            padding: 5px 0;
-            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+            color: #ECF0F1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        /* Hover Effect */
         header nav ul li a:hover {
-            color: #1ABC9C; /* Teal color on hover */
-            transform: scale(1.1); /* Slightly increase size for interactive feel */
-            text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Soft teal glow effect on hover */
-        }
-
-        /* Active Link Style (Optional) */
-        header nav ul li a.active {
-            color: #1ABC9C; /* Active link color */
-            text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Active link glow */
+            color: #1aa287;
+            transform: scale(1.1);
+            text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8);
         }
 
         /* Main Content */
@@ -91,35 +80,103 @@
 
         /* PDF Viewer */
         .pdf-viewer {
-            margin: 20px 0;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
         }
 
-        .pdf-viewer embed {
-            width: 80%;
-            height: 1100px;
-            margin: 0 auto;
-            display: block;
+        .pdf-viewer canvas {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Download Button */
+        .download-btn {
+            padding: 10px 20px;
+            background-color: #18987e;
+            font-family: 'Markazi Text';
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
         }
 
         /* Footer */
         footer {
             display: flex;
-            justify-content: center;  /* Center horizontally */
-            align-items: center;      /* Center vertically */
+            justify-content: center;
+            align-items: center;
             text-align: center;
             padding: 20px;
             background-color: #333;
             color: white;
-            position: relative;       /* Position relative to the container */
-            width: 100%;              /* Make it span the full width */
-            z-index: 999;             /* Ensure it's above other content */
-            margin-top: auto;         /* This ensures the footer is pushed to the bottom when content is short */
+            position: relative;
+            width: 100%;
+            margin-top: auto;
         }
 
         footer p {
             font-family: 'Markazi Text', serif;
-            font-size: 1.5rem;
-            margin: 0;  /* Remove any default margin */
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+            }
+
+            header nav ul li {
+                margin: 5px 0;
+            }
+
+            header nav ul li a {
+                font-size: 1rem;
+            }
+
+            .pdf-viewer canvas {
+                height: auto;
+            }
+
+            footer p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            header nav ul li a {
+                font-size: 0.9rem;
+                padding: 3px 5px;
+            }
+
+            .pdf-viewer canvas {
+                height: auto;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            /* Adjust download button size for small screens */
+            .download-btn {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -128,7 +185,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J12PZYKCZH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'G-J12PZYKCZH');
@@ -145,13 +204,16 @@
         </nav>
     </header>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
     <main>
         <section class="resume-section">
             <div class="resume-container">
+                <!-- Download Button -->
+                <a href="documents/AdityaDhanraj_Resume.pdf" class="download-btn" download>Download Resume</a>
+
                 <!-- PDF Embed -->
-                <div class="pdf-viewer">
-                    <embed src="documents/AdityaDhanraj_Resume.pdf" type="application/pdf" width="100%" height="700px">
-                </div>
+                <div id="pdf-viewer" class="pdf-viewer"></div>
             </div>
         </section>
     </main>
@@ -159,6 +221,37 @@
     <footer>
         <p>© <span id="current-year"></span> Aditya Dhanraj. All rights reserved.</p>
     </footer>
+
+    <script>
+        const url = 'documents/AdityaDhanraj_Resume.pdf';
+
+        // Asynchronously download PDF.
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            const viewer = document.getElementById('pdf-viewer');
+            const pageNumber = 1;
+
+            // Dynamically adjust the scale based on screen width
+            let viewportScale = 1.5;  // Default for larger screens
+            if (window.innerWidth < 768) {
+                viewportScale = 0.8;  // Smaller scale for mobile
+            } else if (window.innerWidth < 1024) {
+                viewportScale = 0.01;  // Slightly smaller scale for medium-sized screens
+            }
+
+            pdfDoc.getPage(pageNumber).then(function(page) {
+                const viewport = page.getViewport({ scale: viewportScale });
+                const canvas = document.createElement('canvas');
+                viewer.appendChild(canvas);
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render the page
+                page.render({ canvasContext: context, viewport: viewport });
+            });
+        });
+    </script>
 </body>
 
 </html>
