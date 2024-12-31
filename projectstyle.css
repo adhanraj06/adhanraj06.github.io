@@ -1085,7 +1085,7 @@ footer p {
     }
 }
 
-  table {
+table {
     width: 70%; /* Reduced width */
     border-collapse: collapse;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
@@ -1184,13 +1184,24 @@ tr:last-child td {
         padding: 8px 15px; /* Adjust padding */
     }
 
+    .planet-container {
+        width: 100%; /* Make it span the width of the container */
+        height: 50px; /* Set a height for the container */
+        top: 0%;
+        display: block; /* Make sure it still occupies space */
+    }
+
     .planet-container-header {
-        font-size: 1rem; /* Reduce font size */
-        padding: 3px; /* Adjust padding */
-        width: 25px; /* Reduce button size */
-        height: 25px; /* Reduce button size */
-        font-size: 1rem; /* Adjust font size */
-        margin: 10px 0; /* Adjust margin */
+        font-size: 1rem;
+    }
+
+    .ufo-contain {
+        visibility: hidden;
+        display: none;
+    }
+    
+    .space-map {
+        width: 91vw;
     }
 
     /* Scale down the central object */
@@ -1370,39 +1381,40 @@ tr:last-child td {
     }
 
     table {
-        width: 100%; 
-        font-size: 11px; /* Smaller font size for mobile */
-        padding: 10px;
-        transform: rotate(90deg); /* Rotate the table 90 degrees */
-        transform-origin: top left; /* Ensures the rotation is from the top left corner */
-        margin: 20px auto; /* Center horizontally after rotation */
+        width: 90%; /* Increase width for smaller screens */
+        margin: 10px auto; /* Adjust margin */
     }
 
-    td, th {
-        padding: 12px; /* Adjusted padding for smaller screens */
+    th, td {
+        padding: 10px; /* Smaller padding */
+        font-size: 14px; /* Smaller font size */
     }
 
-    /* Disable hover effect on mobile */
+    /* Remove box shadow effect on smaller screens */
+    table {
+        box-shadow: none;
+    }
+
+    /* Reduce the margin for mobile */
     td:hover {
-        box-shadow: none; /* Disable hover effect on mobile */
-        color: #ccc; /* Keep color on mobile */
+        box-shadow: none; /* No glow effect on mobile */
     }
 
     tr:hover {
-        background-color: #2a2a2a; /* Adjust background color for mobile hover */
-        transform: none; /* Remove scale effect on mobile */
+        transform: none; /* Remove hover zoom on mobile */
     }
 
-    /* Adjustments for header on mobile */
+    /* Adjust header background color for mobile */
     th {
-        padding: 12px; /* Adjust padding for mobile */
-        font-size: 11px; /* Smaller font size for mobile */
+        padding: 10px;
+        font-size: 14px;
     }
 
-    /* Adjustments for table data on mobile */
-    td {
-        padding: 12px; /* Adjusted padding for mobile */
-        font-size: 11px; /* Smaller font size for mobile */
+    /* Adjust row colors and text color */
+    tr:nth-child(even) {
+        background-color: #333; /* Darker background for odd rows */
     }
+
+    
 
 }
