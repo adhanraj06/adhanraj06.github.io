@@ -8,7 +8,7 @@ const planetData = {
     planet2: {
         title: "Algorithmic Trading Bot",
         timeframe: "October 2024 - December 2024",
-        content: "While trading equities and derivatives earlier this year, I noticed a few reoccurring patterns among a few technical indicators I occasionally used along the way, and out of curiosity, I grew interested in potentially automating my discretionary processes through these. I began to consider how statistical concepts I had recently learned (e.g., hypothesis testing and regression) could be applied in forecasting models, but I ultimately decided to take things slow and build a completely technical-based trading bot not only to gain a better grasp of strategy development but to also experiment with the previous patterns I had noticed. I then built and enhanced the strategy in Pinescript and backtested the strategy on TradingView across differing timeframes and assets, results of which can be found below.",
+        content: "BACKTEST RESULTS BELOW<br>While trading equities and derivatives earlier this year, I noticed a few reoccurring patterns among a few technical indicators I occasionally used along the way, and out of curiosity, I grew interested in potentially automating my discretionary processes through these. I began to consider how statistical concepts I had recently learned (e.g., hypothesis testing and regression) could be applied in forecasting models, but I ultimately decided to take things slow and build a completely technical-based trading bot not only to gain a better grasp of strategy development but to also experiment with the previous patterns I had noticed. I then built and enhanced the strategy in Pinescript and backtested the strategy on TradingView across differing timeframes and assets, results of which can be found below.",
     }
 };
 
@@ -81,7 +81,12 @@ function openPlanetPopup(planetId) {
             if (!additionalParagraph) {
                 additionalParagraph = document.createElement('p');
                 additionalParagraph.className = 'planet-content additional'; // Add a unique class
-                additionalParagraph.style.cssText = 'font-size: 1.2rem; color: white; margin-top: -15px; line-height: 2;';
+                // Check if the device is mobile (max-width: 768px)
+                if (window.innerWidth <= 768) {
+                    additionalParagraph.style.cssText = 'font-size: 1.2rem; color: white; margin-top: 0; line-height: 2;';
+                } else {
+                    additionalParagraph.style.cssText = 'font-size: 1.2rem; color: white; margin-top: -15px; line-height: 2;';
+                }
                 additionalParagraph.innerHTML = `
                     I selected XAU/USD, NDQ, and BTC/USD because of their liquidity and representation 
                     of broader market conditions (XAU/USD being a hedge against economic and/or geopolitical 
