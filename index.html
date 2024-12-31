@@ -503,6 +503,14 @@
         document.getElementById('years-playing-piano').textContent = yearsPlayingPiano;
         document.getElementById('years-playing-football').textContent = yearsPlayingFootball;
 
+
+        function trackButtonClick(buttonName) {
+            gtag('event', 'button_click', {
+                'event_category': 'button_clicks',
+                'event_action': 'click',
+                'event_name': buttonName  // Dynamically passed button name
+            });
+        }
     </script>
 
   <script src="homescript.js"></script>
