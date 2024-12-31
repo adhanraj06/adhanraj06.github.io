@@ -188,6 +188,7 @@ header nav ul li a.active {
     border: none;
     padding: 0;
     cursor: pointer;
+    position: relative; /* Change from absolute to relative */
 }
 
 /* Style for social button images */
@@ -196,18 +197,18 @@ header nav ul li a.active {
     height: 40px;
 }
 
+/* Flexbox setup for buttons */
+.image-container a {
+    display: flex;
+    align-items: center; /* Center the buttons vertically */
+}
+
 .left-btn {
-    position: absolute;
-    left: 210px;
-    top: 60%;
-    transform: translateY(-50%);
+    margin-right: 10px; /* Add space between the LinkedIn button and the image */
 }
 
 .right-btn {
-    position: absolute;
-    right: 210px;
-    top: 60%;
-    transform: translateY(-50%);
+    margin-left: 10px; /* Add space between the GitHub button and the image */
 }
 
 /* Interests Button */
@@ -321,6 +322,7 @@ header nav ul li a.active {
     background-color: #ffffff; /* Crisp White */
     padding: 20px;
     border: 1px solid #ccc;
+    line-height: 20px;
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -360,6 +362,7 @@ header nav ul li a.active {
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    line-height: 27px;
     background-color: #f0f8ff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 600px;
@@ -377,10 +380,6 @@ header nav ul li a.active {
 
 .hidden {
     display: none; /* Initially hidden */
-}
-
-.hidden {
-    display: none;
 }
 
 .wide-pic {
@@ -403,6 +402,7 @@ header nav ul li a.active {
 #before-college-content.toggle-content.active {
     display: block;
     margin-top: 10px;
+    line-height: 20px;
     width: 100%;
     padding: 10px;
     background-color: #f0f8ff; /* Light blue background */
@@ -416,6 +416,7 @@ header nav ul li a.active {
     display: block;
     margin-top: 10px;
     width: 100%;
+    line-height: 20px;
     padding: 10px;
     background-color: white; /* Pure white background */
     position: relative;
@@ -560,9 +561,46 @@ header nav ul li a.active {
     position: relative;
 }
 
+/* Ensure parent containers have relative positioning and add borders for debugging */
+#number-sense-content, #mathematics-content, #calculator-applications-content, #computer-science-content {
+    position: relative;
+}
+
+#number-sense-content.active, #mathematics-content.active, #calculator-applications-content.active, #computer-science-content.active {
+    position: relative;
+    line-height: 20px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Distribute space between icons and text */
+    font-size: 1.2rem;
+}
+
+.icon-container {
+    display: flex; /* Ensure icons are centered in their container */
+    align-items: center;
+    justify-content: center;
+    width: 22%; /* Adjust width as needed */
+}
+
+.icon-container img {
+    width: 100%; /* Icons will scale to their container size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text-content {
+    flex: 1; /* Allow text to take up remaining space */
+    margin: 0 20px; /* Add spacing between text and icons */
+}
+
+.more-icon {
+    width: 3%;
+    margin-top: 10px;
+}
+
 /* General styling for floating images */
 .floating-image {
-    position: absolute; /* Allows absolute positioning */
+    position: flex;
+    margin-top: 10px;
     z-index: 1; /* Ensure the image floats above the text */
 }
 
@@ -570,11 +608,6 @@ header nav ul li a.active {
 .floating-image img {
     width: 20%; /* Adjust the image size */
     height: auto;
-}
-
-/* Ensure parent containers have relative positioning and add borders for debugging */
-#number-sense-content, #mathematics-content, #calculator-applications-content, #computer-science-content {
-    position: relative; /* Necessary for absolute positioning inside them */
 }
 
 /* Optional: Add hover effect to images */
@@ -614,7 +647,19 @@ header nav ul li a.active {
     .resume h2 {
         font-size: 1.6rem;
     }
-    
+
+    /* Adjusting font size and padding for better mobile readability */
+    .interest-content {
+        font-size: 14px; /* Reduce font size on mobile */
+        padding: 15px; /* Reduce padding to make space more efficient */
+        margin-bottom: 20px; /* Adjust margin to fit the mobile screen */
+    }
+
+    /* Adjusting the heading font size */
+    .interests-heading {
+        font-size: 1.2rem; /* Reduce the heading size for smaller screens */
+        margin-top: 15px;
+    }
 }
 
 /* Footer */
