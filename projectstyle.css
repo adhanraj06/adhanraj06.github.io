@@ -863,8 +863,8 @@ footer p {
 
 .ufo-lower {
     position: absolute;
-    top: 53%;
-    left: 52%;
+    top: 50%;
+    left: 50%;
     z-index: 1;
     -webkit-transform: rotateX(70deg);
     -moz-transform: rotateX(70deg);
@@ -879,7 +879,7 @@ footer p {
     overflow: hidden;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 100%;
     border-radius: 100%;
     z-index: 1;
     -webkit-transform: translate(-50%, -50%);
@@ -1153,7 +1153,9 @@ tr:last-child td {
     
     /* Adjust popup dimensions and padding for smaller screens */
     .planet-popup {
-        width: 90vw; /* Make the popup almost full screen width */
+        flex-direction: column; /* Ensures vertical stacking if needed */
+        justify-content: center; /* Center content vertically */
+        width: 85vw; /* Make the popup almost full screen width */
         height: 70vh; /* Allow height to adjust based on content */
         padding: 15px; /* Reduce padding */
         border-radius: 8px; /* Slightly smaller border radius */
@@ -1186,13 +1188,17 @@ tr:last-child td {
 
     .planet-container {
         width: 100%; /* Make it span the width of the container */
-        height: 50px; /* Set a height for the container */
+        height: 100px; /* Set a height for the container */
         top: 0%;
         display: block; /* Make sure it still occupies space */
     }
 
     .planet-container-header {
         font-size: 1rem;
+    }
+
+    .planet-btn1, .planet-btn2 {
+        margin-top: -1px;
     }
 
     .ufo-contain {
@@ -1414,7 +1420,5 @@ tr:last-child td {
     tr:nth-child(even) {
         background-color: #333; /* Darker background for odd rows */
     }
-
-    
 
 }
