@@ -3,7 +3,7 @@ const planetData = {
     planet1: {
         title: "Financial Market Monitor",
         timeframe: "September 2024 - Present",
-        content: "In early September, I joined the University Finance Association, a student-run finance organization, as the only first-year associate, and during our second meeting, we held industry head presentations where candidates demonstrated their expertise in specific sectors. While I initially considered running for the tech sector, my broad interest in various industries led me to pursue the Generalist positiom, and instead of a standard stock pitch or industry analysis, I presented a comprehensive market report covering the previous six weeks. This approach not only earned me the role but also sparked a passion for tracking dynamic markets through macroeconomic research and specific event analysis. Since then, I’ve continued creating detailed market reports every few weeks and sharing them with close friends and industry professionals in Quantitative Finance and Investment Banking. I plan to continue to do so and potentially expand this project further, incorporating insights from other markets or collaborating with peers. As a side note, I’m currently building a website for the Financial Market Monitor to streamline access to these reports, but please feel free to visit the link below to access them for now. Each report includes a PDF slideshow at the top, followed by detailed commentary for each slide.",
+        content: "In early September, I joined the University Finance Association, a student-run finance organization, as the only first-year associate, and during our second meeting, we held industry head presentations where candidates demonstrated their expertise in specific sectors. While I initially considered running for the tech sector, my broad interest in various industries led me to pursue the Generalist position, and instead of a standard stock pitch or industry analysis, I presented a comprehensive market report covering the previous six weeks. This approach not only earned me the role but also sparked a passion for tracking dynamic markets through macroeconomic research and specific event analysis. Since then, I’ve continued creating detailed market reports every few weeks and sharing them with close friends and industry professionals in Quantitative Finance and Investment Banking. I plan to continue to do so and potentially expand this project further, incorporating insights from other markets or collaborating with peers. As a side note, I’m currently building a website for the Financial Market Monitor to streamline access to these reports, but please feel free to visit the link below to access them for now. Each report includes a PDF slideshow at the top, followed by detailed commentary for each slide.",
     },
     planet2: {
         title: "Algorithmic Trading Bot",
@@ -93,11 +93,11 @@ function openPlanetPopup(planetId) {
                     uncertainty oftentimes, NDQ being representative of tech stocks, and BTC/USD being 
                     indicative of the evolving cryptocurrency market). Also, after backtesting the strategy 
                     and connecting with industry professionals (especially QRs and QDs), I have decided to 
-                    shift to a more statistical approach to strategy development and learn applicable concepts 
-                    (e.g., regression analysis, regime modeling, convex and nonconvex optimization, etc.). 
-                    As a side note, this doesn't rule out the use of technical indicators; rather, it signifies a 
+                    shift to a more statistical approach to strategy development and learn applicable concepts. 
+                    However, this does not rule out the use of technical indicators; rather, it signifies a 
                     shift from an over-reliance on them to incorporating concepts such as regression analysis, 
-                    regime modeling, classification and forecasting techniques, convex and nonconvex optimization, etc.
+                    regime modeling, classification and forecasting techniques, convex and nonconvex optimization, etc. 
+                    For more information, please don't hesitate to reach out!
                 `;
                 table.insertAdjacentElement('afterend', additionalParagraph);
             }
