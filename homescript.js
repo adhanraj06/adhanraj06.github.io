@@ -166,11 +166,71 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach the mousemove listener to the hero section
     hero.addEventListener('mousemove', handleMouseMove);
 
+    // About Me Section Slide Effect
+    const aboutButton = document.querySelector('.about-btn'); // Button to trigger the About Me section
+    const aboutContent = document.querySelector('.about-content'); // Container for About Me content
+
+    // Toggle visibility of About Me content
+    function toggleAboutOnClick() {
+        const isVisible = aboutContent.classList.contains('active');
+        if (isVisible) {
+            aboutContent.classList.remove('active');
+            
+            // Set all toggle buttons to active when Show All is triggered
+            const allButtons = document.querySelectorAll('.toggle-btn');
+            allButtons.forEach(button => {
+                button.classList.remove('active'); // Add active class to all buttons
+            });
+        } else {
+            aboutContent.classList.add('active');
+            
+            // Set all toggle buttons to active when Show All is triggered
+            const allButtons = document.querySelectorAll('.toggle-btn');
+            allButtons.forEach(button => {
+                button.classList.add('active'); // Add active class to all buttons
+            });
+        }
+    }
+
+    // Adding click event listener to About Me button
+    if (aboutButton) {
+        aboutButton.addEventListener('click', toggleAboutOnClick);
+    }
+
     // Show All Content Button functionality
+    const interestsButton = document.getElementById('interests-btn');
     const buttonContainer = document.querySelector('.button-container'); // The container for all the buttons
     const allContentSections = document.querySelectorAll(
         '#computer-science-content, #finance-content, #mathematics-content, #other-interests, #before-college, .other-interests'
     );
+
+    // Handle toggle of all content sections (Show All / Hide All)
+    let visibleOrNot = false; // Declare a boolean variable
+    function toggleAllContent() {
+        if (visibleOrNot) {
+            // Hide the button container (buttons for Computer Science, Finance, etc.)
+            buttonContainer.classList.remove('active');
+
+            // Loop through all content sections
+            const allContents = document.querySelectorAll('.interest-content');
+            allContents.forEach(content => {
+                if (content.classList.contains('active')) {
+                    const buttonId = content.id.replace('-content', '-btn'); // Generate button ID dynamically
+                    toggleContent(buttonId, content.id); // Deactivate the content
+                }
+            });
+        } else {
+            // Show the button container when content is shown
+            buttonContainer.classList.add('active');
+
+        }
+        visibleOrNot = !visibleOrNot;
+    }
+
+    // Adding click event listener to the "Show All" button
+    if (interestsButton) {
+        interestsButton.addEventListener('click', toggleAllContent);
+    }
 
     function toggleContent(buttonId, contentId) {
         const content = document.getElementById(contentId);
