@@ -166,37 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach the mousemove listener to the hero section
     hero.addEventListener('mousemove', handleMouseMove);
 
-    // About Me Section Slide Effect
-    const aboutButton = document.querySelector('.about-btn'); // Button to trigger the About Me section
-    const aboutContent = document.querySelector('.about-content'); // Container for About Me content
-
-    // Toggle visibility of About Me content
-    function toggleAboutOnClick() {
-        const isVisible = aboutContent.classList.contains('active');
-        if (isVisible) {
-            aboutContent.classList.remove('active');
-            
-            // Set all toggle buttons to active when Show All is triggered
-            const allButtons = document.querySelectorAll('.toggle-btn');
-            allButtons.forEach(button => {
-                button.classList.remove('active'); // Add active class to all buttons
-            });
-        } else {
-            aboutContent.classList.add('active');
-            
-            // Set all toggle buttons to active when Show All is triggered
-            const allButtons = document.querySelectorAll('.toggle-btn');
-            allButtons.forEach(button => {
-                button.classList.add('active'); // Add active class to all buttons
-            });
-        }
-    }
-
-    // Adding click event listener to About Me button
-    if (aboutButton) {
-        aboutButton.addEventListener('click', toggleAboutOnClick);
-    }
-
     // Show All Content Button functionality
     const interestsButton = document.getElementById('interests-btn');
     const buttonContainer = document.querySelector('.button-container'); // The container for all the buttons
