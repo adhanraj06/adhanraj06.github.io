@@ -132,7 +132,7 @@ header nav ul li a.active {
 /* Hide About Me section initially */
 .about-content {
     font-family: 'Markazi Text', sans-serif;
-    display: block; /* Initially hidden */
+    display: block;
     margin: 0 auto;
     margin-bottom: 40px;
     padding: 20px;
@@ -180,39 +180,6 @@ header nav ul li a.active {
 
 .right-btn {
     margin-left: 10px; /* Add space between the GitHub button and the image */
-}
-
-/* Interests Button */
-.interests-btn {
-    display: flex; /* Always visible */
-    align-items: center;
-    justify-content: center;
-    font-family: 'Markazi Text', sans-serif;
-    font-size: 1.5rem;
-    gap: 10px;
-    padding: 10px 20px;
-    margin: 20px auto; /* Center the button horizontally */
-    background-color: #BDC3C7; /* Soft Gray */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.interests-btn:hover {
-    background-color: #9a9da0; /* Soft Gray */
-    transform: scale(1.05);
-}
-
-.interests-btn img.icon {
-    max-width: 20px; /* Size of the icon */
-    height: auto;
-}
-
-.interests-btn p {
-    margin: 0;
-    font-weight: bold;
 }
 
 /* Buttons for interests */
@@ -359,8 +326,8 @@ header nav ul li a.active {
 }
 
 /* Hide toggle buttons and content by default */
-.toggle-btn, .toggle-content {
-    display: none;
+.toggle-content {
+    display: block;
 }
 
 /* Show buttons when the section is active */
