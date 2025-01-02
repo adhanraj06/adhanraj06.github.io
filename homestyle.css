@@ -328,7 +328,7 @@ header nav ul li a.active {
 
 /* Hide toggle buttons and content by default */
 .toggle-content {
-    display: block;
+    display: none;
 }
 
 /* Show buttons when the section is active */
