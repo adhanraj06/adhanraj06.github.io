@@ -129,34 +129,10 @@ header nav ul li a.active {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* About Button */
-.about-button-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.about-btn {
-    padding: 15px 30px;
-    font-family: 'Markazi Text', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 40px; /* Adjust the value as needed */
-    cursor: pointer;
-    border-radius: 8px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.about-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
 /* Hide About Me section initially */
 .about-content {
     font-family: 'Markazi Text', sans-serif;
-    display: none; /* Initially hidden */
+    display: block; /* Initially hidden */
     margin: 0 auto;
     margin-bottom: 40px;
     padding: 20px;
@@ -166,11 +142,6 @@ header nav ul li a.active {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
     text-align: center;
-}
-
-/* Show the About Me section when it's active */
-.about-content.active {
-    display: block;
 }
 
 /* Center the image and buttons horizontally */
