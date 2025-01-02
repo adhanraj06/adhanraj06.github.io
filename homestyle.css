@@ -129,12 +129,35 @@ header nav ul li a.active {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* About Button */
+.about-button-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.about-btn {
+    padding: 15px 30px;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 40px; /* Adjust the value as needed */
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
 /* Hide About Me section initially */
 .about-content {
     font-family: 'Markazi Text', sans-serif;
-    display: block;
+    display: none; /* Initially hidden */
     margin: 0 auto;
-    margin-top: 40px;
     margin-bottom: 40px;
     padding: 20px;
     width: 80%;
@@ -143,6 +166,11 @@ header nav ul li a.active {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
     text-align: center;
+}
+
+/* Show the About Me section when it's active */
+.about-content.active {
+    display: block;
 }
 
 /* Center the image and buttons horizontally */
@@ -181,6 +209,39 @@ header nav ul li a.active {
 
 .right-btn {
     margin-left: 10px; /* Add space between the GitHub button and the image */
+}
+
+/* Interests Button */
+.interests-btn {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem;
+    gap: 10px;
+    padding: 10px 20px;
+    margin: 20px auto; /* Center the button horizontally */
+    background-color: #BDC3C7; /* Soft Gray */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.interests-btn:hover {
+    background-color: #9a9da0; /* Soft Gray */
+    transform: scale(1.05);
+}
+
+.interests-btn img.icon {
+    max-width: 20px; /* Size of the icon */
+    height: auto;
+}
+
+.interests-btn p {
+    margin: 0;
+    font-weight: bold;
 }
 
 /* Buttons for interests */
@@ -327,12 +388,12 @@ header nav ul li a.active {
 }
 
 /* Hide toggle buttons and content by default */
-.toggle-content {
+.toggle-btn, .toggle-content {
     display: none;
 }
 
 /* Show buttons when the section is active */
-.toggle-btn {
+#before-college.active .toggle-btn {
     display: inline-block;
     margin-top: 10px;
 }
@@ -362,6 +423,11 @@ header nav ul li a.active {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* General Button Styling */
+.toggle-btn {
+    display: none; /* Hide buttons by default */
 }
 
 /* Keep the buttons visible by default */
