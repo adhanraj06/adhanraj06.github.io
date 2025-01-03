@@ -129,35 +129,12 @@ header nav ul li a.active {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* About Button */
-.about-button-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.about-btn {
-    padding: 15px 30px;
-    font-family: 'Markazi Text', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 40px; /* Adjust the value as needed */
-    cursor: pointer;
-    border-radius: 8px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.about-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
 /* Hide About Me section initially */
 .about-content {
     font-family: 'Markazi Text', sans-serif;
-    display: none; /* Initially hidden */
+    display: block; /* Initially hidden */
     margin: 0 auto;
+    margin-top: 20px;
     margin-bottom: 40px;
     padding: 20px;
     width: 80%;
@@ -166,11 +143,6 @@ header nav ul li a.active {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
     text-align: center;
-}
-
-/* Show the About Me section when it's active */
-.about-content.active {
-    display: block;
 }
 
 /* Center the image and buttons horizontally */
@@ -211,42 +183,9 @@ header nav ul li a.active {
     margin-left: 10px; /* Add space between the GitHub button and the image */
 }
 
-/* Interests Button */
-.interests-btn {
-    display: flex; /* Always visible */
-    align-items: center;
-    justify-content: center;
-    font-family: 'Markazi Text', sans-serif;
-    font-size: 1.5rem;
-    gap: 10px;
-    padding: 10px 20px;
-    margin: 20px auto; /* Center the button horizontally */
-    background-color: #BDC3C7; /* Soft Gray */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.interests-btn:hover {
-    background-color: #9a9da0; /* Soft Gray */
-    transform: scale(1.05);
-}
-
-.interests-btn img.icon {
-    max-width: 20px; /* Size of the icon */
-    height: auto;
-}
-
-.interests-btn p {
-    margin: 0;
-    font-weight: bold;
-}
-
 /* Buttons for interests */
 .button-container {
-    display: none;
+    display: flex;
     flex-direction: column; /* Stack buttons vertically */
     justify-content: center;
     align-items: center; /* Center buttons horizontally */
@@ -257,10 +196,6 @@ header nav ul li a.active {
     padding: 20px; /* Adds some padding around the buttons */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-}
-
-.button-container.active {
-    display: flex; /* Becomes visible when active */
 }
 
 /* Buttons in a row (Computer Science, Finance, Math) */
@@ -388,18 +323,18 @@ header nav ul li a.active {
 }
 
 /* Hide toggle buttons and content by default */
-.toggle-btn, .toggle-content {
+.toggle-content {
     display: none;
 }
 
 /* Show buttons when the section is active */
-#before-college.active .toggle-btn {
+.toggle-btn {
     display: inline-block;
     margin-top: 10px;
 }
 
 /* Styling for the "Before College" content */
-#before-college-content.toggle-content.active {
+#before-college-content {
     display: block;
     margin-top: 10px;
     line-height: 20px;
@@ -423,11 +358,6 @@ header nav ul li a.active {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* General Button Styling */
-.toggle-btn {
-    display: none; /* Hide buttons by default */
 }
 
 /* Keep the buttons visible by default */
@@ -475,26 +405,10 @@ header nav ul li a.active {
     transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
-/* Active button styling for the "Before College" section toggle button */
-#before-college .toggle-btn#before-college-btn.active {
-    display: flex; /* Always visible */
-    align-items: center;
-    justify-content: center;
-    font-family: 'Markazi Text', sans-serif;
-    font-size: 1.5rem; /* Larger font size for Before College */
-    gap: 10px;
-    padding: 12px 24px; /* Larger padding for Before College */
-    margin: 25px auto; /* Center the button horizontally with more margin */
-    background-color: #BDC3C7; /* Soft Gray */
-    border: none;
-    border-radius: 10px; /* Larger border radius for Before College */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
+
 
 /* Active button styling for section toggle buttons (smaller) */
-#before-college .toggle-btn:not(#before-college-btn).active {
+.toggle-btn {
     display: flex; /* Always visible */
     align-items: center;
     justify-content: center;
@@ -514,13 +428,6 @@ header nav ul li a.active {
 }
 
 /* Image icon styling */
-#before-college .toggle-btn .icon {
-    width: 20px; /* Adjust icon size */
-    height: 20px; /* Adjust icon size */
-    object-fit: contain; /* Ensure the image keeps aspect ratio */
-}
-
-/* Image icon styling for both buttons */
 .toggle-btn .icon {
     width: 20px; /* Adjust icon size */
     height: 20px; /* Adjust icon size */
@@ -528,13 +435,7 @@ header nav ul li a.active {
 }
 
 /* Hover effect for buttons */
-#before-college .toggle-btn:not(#before-college-btn):hover {
-    background-color: #AAB7C4; /* Slightly darker gray on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
-}
-
-/* Hover effect for buttons */
-#before-college .toggle-btn#before-college-btn:hover {
+.toggle-btn:hover {
     background-color: #AAB7C4; /* Slightly darker gray on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
@@ -677,9 +578,9 @@ footer {
     background-color: #333;
     color: white;
     position: relative;       /* Position relative to the container */
-    width: 100%;              /* Make it span the full width */
+    width: 100%;              /* Full width */
     z-index: 999;             /* Ensure it's above other content */
-    margin-top: auto;         /* This ensures the footer is pushed to the bottom when content is short */
+    margin-top: auto;         /* This pushes the footer to the bottom if the content is short */
 }
 
 footer p {
