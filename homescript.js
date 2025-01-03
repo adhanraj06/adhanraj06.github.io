@@ -166,180 +166,133 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach the mousemove listener to the hero section
     hero.addEventListener('mousemove', handleMouseMove);
 
-    // About Me Section Slide Effect
-    const aboutButton = document.querySelector('.about-btn'); // Button to trigger the About Me section
-    const aboutContent = document.querySelector('.about-content'); // Container for About Me content
-
-    // Toggle visibility of About Me content
-    function toggleAboutOnClick() {
-        const isVisible = aboutContent.classList.contains('active');
-        if (isVisible) {
-            aboutContent.classList.remove('active');
-            
-            // Set all toggle buttons to active when Show All is triggered
-            const allButtons = document.querySelectorAll('.toggle-btn');
-            allButtons.forEach(button => {
-                button.classList.remove('active'); // Add active class to all buttons
-            });
-        } else {
-            aboutContent.classList.add('active');
-            
-            // Set all toggle buttons to active when Show All is triggered
-            const allButtons = document.querySelectorAll('.toggle-btn');
-            allButtons.forEach(button => {
-                button.classList.add('active'); // Add active class to all buttons
-            });
-        }
-    }
-
-    // Adding click event listener to About Me button
-    if (aboutButton) {
-        aboutButton.addEventListener('click', toggleAboutOnClick);
-    }
-
     // Show All Content Button functionality
-    const interestsButton = document.getElementById('interests-btn');
-    const buttonContainer = document.querySelector('.button-container'); // The container for all the buttons
-    const allContentSections = document.querySelectorAll(
-        '#computer-science-content, #finance-content, #mathematics-content, #other-interests, #before-college, .other-interests'
-    );
+const allContentSections = document.querySelectorAll(
+    '#computer-science-content, #finance-content, #mathematics-content, #other-interests, #before-college, .other-interests'
+);
 
-    // Handle toggle of all content sections (Show All / Hide All)
-    let visibleOrNot = false; // Declare a boolean variable
-    function toggleAllContent() {
-        if (visibleOrNot) {
-            // Hide the button container (buttons for Computer Science, Finance, etc.)
-            buttonContainer.classList.remove('active');
+// Handle toggle of all content sections (Show All / Hide All)
+let visibleOrNot = false; // Declare a boolean variable
 
-            // Loop through all content sections
-            const allContents = document.querySelectorAll('.interest-content');
-            allContents.forEach(content => {
-                if (content.classList.contains('active')) {
-                    const buttonId = content.id.replace('-content', '-btn'); // Generate button ID dynamically
-                    toggleContent(buttonId, content.id); // Deactivate the content
-                }
-            });
-        } else {
-            // Show the button container when content is shown
-            buttonContainer.classList.add('active');
+function toggleAllContent() {
+    const allContents = document.querySelectorAll('.interest-content');
+    
+    allContents.forEach(content => {
+        const buttonId = content.id.replace('-content', '-btn'); // Generate button ID dynamically
+        toggleContent(buttonId, content.id); // Toggle each content section
+    });
 
-        }
-        visibleOrNot = !visibleOrNot;
-    }
+    visibleOrNot = !visibleOrNot;  // Toggle the state
+}
 
-    // Adding click event listener to the "Show All" button
-    if (interestsButton) {
-        interestsButton.addEventListener('click', toggleAllContent);
-    }
+// Function to toggle visibility of content boxes
+function toggleContent(buttonId, contentId) {
+    const content = document.getElementById(contentId);
+    const button = document.getElementById(buttonId);
 
-    function toggleContent(buttonId, contentId) {
-        const content = document.getElementById(contentId);
+    // If content is already visible, hide it
+    if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        button.classList.remove('active');
+    } else {
+        // Hide all other content sections
         const allContents = document.querySelectorAll('.interest-content');
         const allButtons = document.querySelectorAll('.interest-btn');
         
-        // Check if the content is already active
-        const isContentActive = content.classList.contains('active');
-        
-        // Hide all content sections and remove active class from buttons
         allContents.forEach(item => item.classList.remove('active'));
         allButtons.forEach(button => button.classList.remove('active'));
-
-        // If the content wasn't already active, show it
-        if (!isContentActive) {
-            content.classList.add('active');
-            document.getElementById(buttonId).classList.add('active');
-        }
+        
+        // Show the selected content section
+        content.classList.add('active');
+        button.classList.add('active');
     }
+}
 
-    // Generalized event listener for each button
-    document.querySelectorAll('.interest-btn').forEach(button => {
-        const contentId = button.id.replace('-btn', '-content'); // Generate content ID dynamically
-        button.addEventListener('click', () => {
-            toggleContent(button.id, contentId);
-        });
+// Generalized event listener for each button
+document.querySelectorAll('.interest-btn').forEach(button => {
+    const contentId = button.id.replace('-btn', '-content'); // Generate content ID dynamically
+    button.addEventListener('click', () => {
+        toggleContent(button.id, contentId);
     });
+});
 
-    document.getElementById('fun-fact-box').addEventListener('click', function () {
-        const experienceBox = document.getElementById('trading-experience-box');
-        trackButtonClick("Home - Fun Fact");
-        // Check current visibility state
-        if (!experienceBox.classList.contains('visible')) {
-            // Show the box with a flip effect
-            experienceBox.style.display = 'block'; // Ensure it's visible
-            setTimeout(() => {
-                experienceBox.classList.add('visible'); // Add the visible class to trigger animations
-            }, 10); // Slight delay to allow the transition
-        } else {
-            // Hide the box with a reverse flip effect
-            experienceBox.classList.remove('visible'); // Remove the visible class
-            setTimeout(() => {
-                experienceBox.style.display = 'none'; // Fully hide after the animation ends
-            }, 600); // Match the CSS transition time
-        }
-    });
-    
-    // Function to toggle visibility of the info boxes
-    function toggleInfoBox(buttonId, infoBoxId) {
-        const button = document.getElementById(buttonId);
-        const infoBox = document.getElementById(infoBoxId);
-
-        if (button && infoBox) {
-            button.addEventListener('click', function () {
-                // If the info box is not visible, show it
-                if (!infoBox.classList.contains('visible')) {
-                    infoBox.style.display = 'block'; // Make it visible
-                    infoBox.style.opacity = 1; // Ensure opacity is set
-                    setTimeout(() => infoBox.classList.add('visible'), 10); // Trigger the animation
-                } else {
-                    infoBox.classList.remove('visible'); // Start hiding animation
-                    infoBox.style.opacity = 0; // Ensure opacity is fading out
-                    setTimeout(() => infoBox.style.display = 'none', 600); // Fully hide after animation
-                }
-            });
-        }
+// Toggle visibility for fun fact box
+document.getElementById('fun-fact-box').addEventListener('click', function () {
+    const experienceBox = document.getElementById('trading-experience-box');
+    trackButtonClick("Home - Fun Fact");
+    // Check current visibility state
+    if (!experienceBox.classList.contains('visible')) {
+        // Show the box with a flip effect
+        experienceBox.style.display = 'block';
+        setTimeout(() => experienceBox.classList.add('visible'), 10);
+    } else {
+        // Hide the box with a reverse flip effect
+        experienceBox.classList.remove('visible');
+        setTimeout(() => experienceBox.style.display = 'none', 600);
     }
+});
 
-    // Call the function for both buttons and info boxes
-    toggleInfoBox('sports-button', 'sports-info');
-    toggleInfoBox('piano-button', 'piano-info');
+// Toggle individual info boxes (sports and piano example)
+function toggleInfoBox(buttonId, infoBoxId) {
+    const button = document.getElementById(buttonId);
+    const infoBox = document.getElementById(infoBoxId);
 
-    // Add event listeners for all toggle buttons in the "Before College" section
-    document.querySelectorAll('.toggle-btn').forEach(button => {
+    if (button && infoBox) {
         button.addEventListener('click', function () {
-            // Get the associated content by extracting the content ID from the button ID
-            const contentId = button.id.replace('-btn', '-content');
-            const content = document.getElementById(contentId);
-
-            // Toggle the visibility of the content
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                content.style.display = 'none'; // Hide the content when "active" class is removed
+            // If the info box is not visible, show it
+            if (!infoBox.classList.contains('visible')) {
+                infoBox.style.display = 'block';
+                infoBox.style.opacity = 1;
+                setTimeout(() => infoBox.classList.add('visible'), 10);
             } else {
-                content.classList.add('active');
-                content.style.display = 'block'; // Show the content when "active" class is added
+                infoBox.classList.remove('visible');
+                infoBox.style.opacity = 0;
+                setTimeout(() => infoBox.style.display = 'none', 600);
             }
         });
+    }
+}
+
+// Example of toggling info boxes for sports and piano
+toggleInfoBox('sports-button', 'sports-info');
+toggleInfoBox('piano-button', 'piano-info');
+
+// Add event listeners for all toggle buttons in the "Before College" section
+document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const contentId = button.id.replace('-btn', '-content');
+        const content = document.getElementById(contentId);
+
+        // Toggle the visibility of the content
+        if (content.classList.contains('active')) {
+            content.classList.remove('active');
+            content.style.display = 'none'; // Hide the content when "active" class is removed
+        } else {
+            content.classList.add('active');
+            content.style.display = 'block'; // Show the content when "active" class is added
+        }
     });
+});
 
-    // Toggle content for individual competitions
-    document.querySelectorAll('.competitions-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.id.replace('-btn', '-content');
-            const targetContent = document.getElementById(targetId);
+// Toggle content for individual competitions
+document.querySelectorAll('.competitions-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.id.replace('-btn', '-content');
+        const targetContent = document.getElementById(targetId);
 
-            // Hide all competition content
-            document.querySelectorAll('.competitions-content').forEach(content => {
-                content.classList.remove('active');
-                content.style.display = 'none';
-            });
-
-            // Show selected competition content
-            if (targetContent) {
-                targetContent.classList.add('active');
-                targetContent.style.display = 'block';
-            }
+        // Hide all competition content
+        document.querySelectorAll('.competitions-content').forEach(content => {
+            content.classList.remove('active');
+            content.style.display = 'none';
         });
+
+        // Show selected competition content
+        if (targetContent) {
+            targetContent.classList.add('active');
+            targetContent.style.display = 'block';
+        }
     });
+});
 
     function trackButtonClick(buttonName) {
         gtag('event', 'button_click', {
