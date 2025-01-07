@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="Hi! Please feel free to take a look at my current and/or former projects and reach out if you would like to collaborate or jump on a call to discuss anything!">
+    <meta property="og:image" content="https://adhanraj06.github.io/websitelogo.jpg">
+    <meta name="title" property="og:title" content="Projects Page">
+    <meta name="author" content="Aditya Dhanraj"> 
+    <meta property="og:url" content="https://adhanraj06.github.io/projects">
+    <link rel="canonical" href="https://adhanraj06.github.io/projects">
+    <title>Projects Page</title>
+    <link rel="stylesheet" href="projectstyle.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J12PZYKCZH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J12PZYKCZH');
+</script>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ADD MORE PROJECTS BY ADDING MORE PLANETS - YOU WILL ADD PLANETS HERE AND THEN CODE UP THE COLOR AND DESIGN IN CSS AND THEN THE CONTENTS GO IN THE JS -->
+    <main>
+        <div class="map-container">
+            <div class="space-map">
+
+                <div class="central-object"></div>
+
+                <!-- Planet container on the left-hand side -->
+                <div class="planet-container">             
+                    <div class="planet-container-header">
+                        Click the Planets Below or In Orbit
+                    </div>    
+                    <div class="ufo-contain">
+                        <div class="ufo-upper">
+                            <div class="cockpit">
+                                <div class="glass"></div>
+                                <div class="alien">
+                                    <div class="eye"></div>
+                                </div>
+                                <div class="glass-edge"></div>
+                            </div>
+                        </div>
+                        <div class="ufo-lower">
+                            <div class="lights">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="tractor-beam"></div>
+                    </div>
+                    <button class="planet-btn1" id="planet1-btn" style="font-family: 'Markazi Text';" onclick="trackButtonClick('Projects - Planet1 Left Panel')">1</button>
+                    <button class="planet-btn2" id="planet2-btn" style="font-family: 'Markazi Text';" onclick="trackButtonClick('Projects - Planet2 Left Panel')">2</button>   
+                </div>                
+
+                <div class="planet orbit-1" id="planet1"></div>
+                <div class="planet orbit-2" id="planet2"></div>
+                <div class="planet orbit-3" id="planet3"></div>
+                <div class="planet orbit-4" id="planet4"></div>
+                <div class="planet orbit-5" id="planet5"></div>
+                <div class="planet orbit-6" id="planet6"></div>
+                <div class="planet orbit-7" id="planet7"></div>
+                <div class="planet orbit-8" id="planet8"></div>
+
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <div class="orbit orbit-4"></div>
+                <div class="orbit orbit-5"></div>
+                <div class="orbit orbit-6"></div>
+                <div class="orbit orbit-7"></div>
+                <div class="orbit orbit-8"></div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Popup Content (Hidden by default) -->
+    <div id="planet-popup" class="planet-popup">
+        <span class="close-btn-left" onclick="closePlanetPopup()">×</span>
+        <span class="close-btn-right" onclick="closePlanetPopup()">×</span>
+        <div class="planet-content">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Timeframe</th>
+                    <th>First Trade Date</th>
+                    <th>Last Trade Date</th>
+                    <th>Net Return (%)</th>
+                    <th>Total Closed Trades</th>
+                    <th>% Profitability</th>
+                    <th>Profit Factor</th>
+                    <th>Max Drawdown (%)</th>
+                    <th>Buy & Hold Return (%)</th>
+                    <th>Sharpe Ratio</th>
+                    <th>Sortino Ratio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>XAU/USD</td>
+                    <td>1 Hour</td>
+                    <td>Jan 4, 2024</td>
+                    <td>Dec 27, 2024</td>
+                    <td>32.59%</td>
+                    <td>124</td>
+                    <td>57.26%</td>
+                    <td>1.824</td>
+                    <td>5.84%</td>
+                    <td>28.07%</td>
+                    <td>0.952</td>
+                    <td>6.69</td>
+                </tr>
+                <tr>
+                    <td>NDQ</td>
+                    <td>5 Minutes</td>
+                    <td>Sep 23, 2024</td>
+                    <td>Dec 27, 2024</td>
+                    <td>10.12%</td>
+                    <td>119</td>
+                    <td>55.46%</td>
+                    <td>1.534</td>
+                    <td>2.81%</td>
+                    <td>8.20%</td>
+                    <td>0.905</td>
+                    <td>4.274</td>
+                </tr>
+                <tr>
+                    <td>BTC/USD</td>
+                    <td>2 Hours</td>
+                    <td>Jan 19, 2023</td>
+                    <td>Dec 28, 2024</td>
+                    <td>364.33%</td>
+                    <td>185</td>
+                    <td>51.35%</td>
+                    <td>1.809</td>
+                    <td>25.21%</td>
+                    <td>343.96%</td>
+                    <td>0.604</td>
+                    <td>1.765</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© <span id="current-year"></span> Aditya Dhanraj. All rights reserved.</p>
+    </footer>
+
+    <script src="projectscript.js"></script>
+</body>
+</html>
