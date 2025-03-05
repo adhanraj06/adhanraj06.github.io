@@ -91,13 +91,7 @@ function openPlanetPopup(planetId) {
                     I selected XAU/USD, NDQ, and BTC/USD because of their liquidity and representation 
                     of broader market conditions (XAU/USD being a hedge against economic and/or geopolitical 
                     uncertainty oftentimes, NDQ being representative of tech stocks, and BTC/USD being 
-                    indicative of the evolving cryptocurrency market). Also, after backtesting the strategy 
-                    and connecting with industry professionals (especially QRs and QDs), I have decided to 
-                    shift to a more statistical approach to strategy development and learn applicable concepts. 
-                    However, this does not rule out the use of technical indicators; rather, it signifies a 
-                    shift from an over-reliance on them to incorporating concepts such as regression analysis, 
-                    regime modeling, classification and forecasting techniques, convex and nonconvex optimization, etc. 
-                    For more information, please don't hesitate to reach out!
+                    indicative of the evolving cryptocurrency market).
                 `;
                 table.insertAdjacentElement('afterend', additionalParagraph);
             }
