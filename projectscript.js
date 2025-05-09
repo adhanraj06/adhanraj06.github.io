@@ -192,9 +192,9 @@ function openPlanetPopup(planetId) {
 
 function handleTypeChange(selectElement) {
     const row = selectElement.closest('.variable-row');
-    const sizeInput = row.querySelector('.array-size-input');
+    const sizeInput = row.querySelector('.size-input');
   
-    if (selectElement.value.includes('[]')) {
+    if (selectElement.value.includes('[]') || selectElement.value === 'struct' || selectElement.value === 'union') {
       sizeInput.style.display = 'inline-block';
     } else {
       sizeInput.style.display = 'none';
@@ -281,8 +281,8 @@ function addVariable() {
             <option value="function_pointer">function_pointer <!-- Depends on architecture --></option>
         </select>
 
-        <input type="number" class="memory-tool-input array-size-input" placeholder="Size" style="display: none;" />
-        <input type="text" class="memory-tool-input" placeholder="Optional Value" />
+        <input type="number" class="memory-tool-input size-input" placeholder="Size (REQUIRED)" style="display: none;" />
+        <input type="text" class="memory-tool-input" placeholder="Value (Optional)" />
         
         <button class="delete-variable-button" onclick="deleteVariable(this)">❌</button>
     `;
@@ -384,9 +384,9 @@ function analyzeCode() {
         const varTypeElement = row.querySelector('select');
         const varType = varTypeElement ? varTypeElement.value : 'N/A';  // Default to 'N/A' if no select element
     
-        // Get the optional array size (if applicable)
-        const arraySizeInput = row.querySelector('.array-size-input');
-        const arraySize = arraySizeInput && arraySizeInput.style.display !== 'none' ? arraySizeInput.value : 'N/A';
+        // Get the optional size (if applicable)
+        const sizeInput = row.querySelector('.size-input');
+        const inputSize = sizeInput && sizeInput.style.display !== 'none' ? sizeInput.value : 'N/A';
     
         // Get the optional value (if applicable)
         const varValueElement = row.querySelector('input[type="text"]:nth-of-type(2)');
@@ -394,8 +394,8 @@ function analyzeCode() {
         
         if (varType !== 'N/A') {
             currVarSize = CTypeSizes.get(varType)
-            if (arraySize !== 'N/A') {
-                currVarSize *= arraySize;
+            if (inputSize !== 'N/A') {
+                currVarSize *= inputSize;
             }
         } else {
             return;
