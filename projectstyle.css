@@ -141,9 +141,95 @@ footer p {
     color: white;
 }
 
+.memory-tool-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #7C83F3;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin: 12px 6px 0 0;
+}
+
+.memory-tool-button:hover {
+    background-color: #5A5A8F;
+}
+
+.memory-tool-select, 
+.memory-tool-input {
+    padding: 8px 10px;
+    margin: 6px;
+    border: 1px solid #5A5A8F;
+    border-radius: 8px;
+    background-color: #1E1E2E;
+    color: #EAEAFF;
+    font-size: 0.9rem;
+}
+
+#form-mode {
+    display: block;
+}
+
+.result-section {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: #2E2D4D;
+    border: 1px solid #7C83F3;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #EAEAFF;
+    white-space: pre-wrap;
+}
+
+.variable-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+#variable-container {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;  /* Stack children vertically */
+    align-items: center;     /* Horizontally center items */
+    justify-content: center; /* Vertically center items */
+    text-align: center;      /* Ensure text inside elements is centered */
+    width: 100%;             /* Or a specific width if needed */
+}
+
+.delete-variable-button {
+    background: none;
+    border: none;
+    color: #ff5c5c;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 4px;
+}
+
+.delete-variable-button:hover {
+    color: #ff1c1c;
+}  
+
+@media (max-width: 600px) {
+    .variable-row {
+        flex-direction: column; /* Stack items vertically */
+        gap: 8px;               /* Slightly tighter gap for smaller screens */
+    }
+
+    .variable-row > * {
+        width: 100%;            /* Optional: make each child span full width */
+    }
+}
+
 /* Styling for planet buttons in container */
 .planet-btn1,
-.planet-btn2 {
+.planet-btn2,
+.planet-btn3 {
     margin: 15px 0;
     color: white;
     font-size: 1.2rem;
@@ -175,6 +261,17 @@ footer p {
 }
 
 .planet-btn2:hover {
+    transform: scale(1.1);
+}
+
+.planet-btn3 {
+    background: radial-gradient(circle, #FF6347 60%, #ff4500), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+    transition: transform 0.3s ease;
+}
+
+.planet-btn3:hover {
     transform: scale(1.1);
 }
 
@@ -1082,6 +1179,29 @@ footer p {
         transform: translate(-50%, 0%) rotateX(40deg);
         opacity: 0.3;
     }
+}
+
+@keyframes flyToUFO {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        z-index: 1;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.2);
+        z-index: 10;
+    }
+    100% {
+        transform: translateY(-250px) scale(0.5);
+        opacity: 0.6;
+        z-index: 100;
+    }
+}
+
+.fly-to-ufo {
+    animation: flyToUFO 2s ease-in-out forwards;
+    position: relative;
+    z-index: 100;
 }
 
 table {
