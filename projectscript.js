@@ -351,8 +351,8 @@ function analyzeCode() {
         ['double[]', 8],
       
         // Special/custom types
-        ['struct', 0],
-        ['union', 0],
+        ['struct', 1],
+        ['union', 1],
         ['enum', 4], // usually treated like int
       
         // Optional
