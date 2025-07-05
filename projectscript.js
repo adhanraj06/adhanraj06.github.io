@@ -12,7 +12,7 @@ const planetData = {
     },
     planet3: {
         title: "MemScope",
-        timeframe: "May 2025 - Present",
+        timeframe: "May 2025 - May 2025",
         content: "Enter Variables Manually -> Understand the Background Data Alignment"
     }
 };
