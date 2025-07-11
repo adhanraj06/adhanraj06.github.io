@@ -120,35 +120,82 @@
             font-size: 1.2rem;
         }
 
+        .resume-table {
+            width: 95%;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            border-collapse: collapse;
+            font-family: 'Markazi Text', serif;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-table th,
+        .resume-table td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .resume-table th {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+        }
+
+        .resume-table td:first-child {
+            font-weight: bold;
+            background-color: #ecf0f1;
+            color: #2C3E50;
+        }
+
+        .pdf-viewer canvas {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) {
-            header nav ul {
-                flex-direction: column;
-            }
-
-            header nav ul li {
-                margin: 5px 0;
-            }
-
-            .download-btn {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-
-            footer p {
-                font-size: 1rem;
-            }
+        .resume-table {
+            font-size: 0.95rem;
+            width: 100%;
+            overflow-x: auto;
+            display: block;
         }
 
-        @media (max-width: 480px) {
-            .download-btn {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
-
-            footer p {
-                font-size: 0.9rem;
-            }
+        header nav ul {
+            flex-direction: column;
         }
+
+        header nav ul li {
+            margin: 5px 0;
+        }
+
+        .download-btn {
+            font-size: 1rem;
+            padding: 8px 16px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .download-btn {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    }
     </style>
 </head>
 
@@ -173,20 +220,52 @@
     </header>
 
     <main>
-        <section class="resume-section">
-            <div class="resume-container">
-                <!-- Download Buttons -->
-                <a href="documents/AdityaDhanraj_FinanceResume.pdf" class="download-btn" download>Download Finance Resume</a>
-                <a href="documents/AdityaDhanraj_TechResume.pdf" class="download-btn" download>Download Tech Resume</a>
-
-                <!-- View Buttons -->
-                <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_FinanceResume.pdf')">View Finance Resume</button>
-                <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_TechResume.pdf')">View Tech Resume</button>
-
-                <!-- PDF Viewer -->
-                <div id="pdf-viewer" class="pdf-viewer"></div>
-            </div>
-        </section>
+        <p style="font-size: 3rem; font-family: 'Markazi Text', serif; color: white; margin-bottom: 20px;">
+            <strong>Note:</strong> I’m ahead on credits and have the flexibility to graduate in either <strong>2027</strong> or <strong>2028</strong>.
+        </p>        
+        <table class="resume-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Finance</th>
+                    <th>Tech</th>
+                    <th>Hybrid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Class of 2028</strong></td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Finance_2028.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Finance_2028.pdf')">View</button>
+                    </td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Tech_2028.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Tech_2028.pdf')">View</button>
+                    </td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Hybrid_2028.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Hybrid_2028.pdf')">View</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Class of 2027</strong></td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Finance_2027.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Finance_2027.pdf')">View</button>
+                    </td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Tech_2027.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Tech_2027.pdf')">View</button>
+                    </td>
+                    <td>
+                        <a href="documents/AdityaDhanraj_Hybrid_2027.pdf" class="download-btn" download>Download</a>
+                        <button class="download-btn" onclick="renderResume('documents/AdityaDhanraj_Hybrid_2027.pdf')">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="pdf-viewer" class="pdf-viewer"></div>
     </main>
 
     <footer>
@@ -203,11 +282,11 @@
 
             pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
                 const pageNumber = 1;
-                let viewportScale = 1.5;
+                let viewportScale = 0.9;
                 if (window.innerWidth < 768) {
-                    viewportScale = 0.8;
+                    viewportScale = 0.6;
                 } else if (window.innerWidth < 1024) {
-                    viewportScale = 1.0;
+                    viewportScale = 0.75;
                 }
 
                 pdfDoc_.getPage(pageNumber).then(function (page) {
