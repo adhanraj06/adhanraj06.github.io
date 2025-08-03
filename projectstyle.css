@@ -1,0 +1,1543 @@
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Update the body for scroll */
+body {
+    font-family: 'Markazi Text', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2E2D4D;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;  /* Allow vertical scrolling */
+    height: auto;  /* Allow body height to grow based on content */
+}
+
+/* Header */
+header {
+    background-color: #2C3E50; /* Dark navy blue background */
+    color: #ECF0F1; /* Very light gray text for contrast */
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Nav Links */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    font-family: 'Markazi Text', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem; /* Larger text for emphasis */
+    text-decoration: none;
+    color: #ECF0F1; /* Light gray text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Soft shadow for text */
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+header nav ul li a:hover {
+    color: #1ABC9C; /* Teal color on hover */
+    transform: scale(1.1); /* Slightly increase size for interactive feel */
+    text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Soft teal glow effect on hover */
+}
+
+/* Active Link Style (Optional) */
+header nav ul li a.active {
+    color: #1ABC9C; /* Active link color */
+    text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8); /* Active link glow */
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    min-height: 100%;  /* Ensure the main content stretches to the full height */
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: relative;       /* Position relative to the container */
+    width: 100%;              /* Make it span the full width */
+    z-index: 999;             /* Ensure it's above other content */
+    margin-top: auto;         /* This ensures the footer is pushed to the bottom when content is short */
+}
+
+footer p {
+    font-family: 'Markazi Text', serif;
+    font-size: 1.5rem;
+    margin: 0;  /* Remove any default margin */
+}
+
+/* Space Map Container */
+.space-map {
+    position: relative;
+    width: 97.5vw;  /* Adjusted width for full-screen */
+    min-height: 85vh; /* Adjusted height for full-screen */
+    background: radial-gradient(circle, #0b0b0b, #1d1d1d),
+                radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px); /* Added stars effect */
+    background-size: 5px 5px; /* Star size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Allow scrolling */
+    clip-path: inset(0); /* Restricts any child element outside the space-map */
+}
+ 
+.planet-container {
+    position: absolute; /* Position relative to the space map */
+    left: 0;  /* Align to the left side of the parent */
+    width: 200px;  /* Adjust as needed */
+    height: 85vh;
+    background: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;  /* Ensure it's on top of other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Text for Planet Container */
+.planet-container-header {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+}
+
+.memory-tool-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #7C83F3;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin: 12px 6px 0 0;
+}
+
+.memory-tool-button:hover {
+    background-color: #5A5A8F;
+}
+
+.memory-tool-select, 
+.memory-tool-input {
+    padding: 8px 10px;
+    margin: 6px;
+    border: 1px solid #5A5A8F;
+    border-radius: 8px;
+    background-color: #1E1E2E;
+    color: #EAEAFF;
+    font-size: 0.9rem;
+}
+
+#form-mode {
+    display: block;
+}
+
+.result-section {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: #2E2D4D;
+    border: 1px solid #7C83F3;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #EAEAFF;
+    white-space: pre-wrap;
+}
+
+.variable-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+#variable-container {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;  /* Stack children vertically */
+    align-items: center;     /* Horizontally center items */
+    justify-content: center; /* Vertically center items */
+    text-align: center;      /* Ensure text inside elements is centered */
+    width: 100%;             /* Or a specific width if needed */
+}
+
+.delete-variable-button {
+    background: none;
+    border: none;
+    color: #ff5c5c;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 4px;
+}
+
+.delete-variable-button:hover {
+    color: #ff1c1c;
+}  
+
+@media (max-width: 600px) {
+    .variable-row {
+        flex-direction: column; /* Stack items vertically */
+        gap: 8px;               /* Slightly tighter gap for smaller screens */
+    }
+
+    .variable-row > * {
+        width: 100%;            /* Optional: make each child span full width */
+    }
+}
+
+/* Styling for planet buttons in container */
+.planet-btn1,
+.planet-btn2,
+.planet-btn3 {
+    margin: 15px 0;
+    color: white;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none; /* Remove default borders */
+    cursor: pointer;
+    z-index: 3;
+}
+
+/* Specific styles for individual planets */
+.planet-btn1 {
+    background: radial-gradient(circle, #4CAF50 60%, #2e8b57), radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+    transition: transform 0.3s ease;
+}
+
+.planet-btn1:hover {
+    transform: scale(1.1);
+}
+
+.planet-btn2 {
+    background: radial-gradient(circle, #8A2BE2 60%, #7a4db8), radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+    transition: transform 0.3s ease;
+}
+
+.planet-btn2:hover {
+    transform: scale(1.1);
+}
+
+.planet-btn3 {
+    background: radial-gradient(circle, #FF6347 60%, #ff4500), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+    transition: transform 0.3s ease;
+}
+
+.planet-btn3:hover {
+    transform: scale(1.1);
+}
+
+/* Style for the popup */
+.planet-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+        to bottom, 
+        #2E2D4D, /* Top light color */
+        #4A496D 30%, /* Darker middle color start */
+        #4A496D 70%, /* Darker middle color end */
+        #2E2D4D /* Bottom light color */
+    );
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    z-index: 1000;
+    width: 70vw;
+    height: 40vw;
+    overflow-y: auto;
+}
+
+/* Style for the content inside the popup */
+.planet-content {
+    text-align: center;
+}
+
+.planet-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: White;
+    font-size: 3rem;
+}
+
+.planet-content p {
+    line-height: 3;
+}
+
+/* Close button inside the popup */
+.close-btn-left {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Close button inside the popup */
+.close-btn-right {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+}
+
+.planet1link-box {
+    background-color: #828282;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.planet1link-box:hover {
+    transform: scale(1.05);
+    background-color: #575757;
+}
+
+/* Central Object (Black Hole) */
+.central-object {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: #000; /* Black Hole color */
+    border-radius: 50%;
+    border: 5px solid #fff; /* Border color to simulate glowing effect */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 50px rgba(255, 255, 255, 0.3); /* Glowing white effect */
+    animation: central-pulse 2s infinite alternate;
+    overflow: visible; /* Ensures we don’t see anything spilling out of the black hole */
+}
+
+/* Central Object Pulse Effect */
+@keyframes central-pulse {
+    0% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.7), 0 0 50px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 60px rgba(255, 255, 255, 1), 0 0 80px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Accretion Disk */
+.accretion-disk {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 0, 0, 0.2));
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px; /* Center the accretion disk */
+    margin-left: -125px; /* Center the accretion disk */
+    animation: accretion-spin 3s infinite linear;
+}
+
+/* Accretion Disk Rotation Animation */
+@keyframes accretion-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Planet Styles */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),  /* Soft white glow */
+                0 0 30px rgba(0, 255, 255, 0.3),   /* Subtle cyan glow */
+                0 0 60px rgba(0, 255, 255, 0.1),   /* Fainter cyan glow */
+                0 0 90px rgba(255, 165, 0, 0.4),   /* Warm orange glow */
+                0 0 120px rgba(255, 215, 0, 0.2);  /* Faint yellow glow */
+    z-index: 10;
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    pointer-events: auto;
+}
+
+/* Optional hover effect for extra glow */
+.planet:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8),    /* Slightly stronger white glow */
+                0 0 60px rgba(0, 255, 255, 0.5),    /* Stronger cyan glow */
+                0 0 90px rgba(0, 255, 255, 0.3),    /* Medium cyan glow */
+                0 0 120px rgba(255, 165, 0, 0.6),   /* Strong orange glow */
+                0 0 150px rgba(255, 215, 0, 0.3);   /* Bright yellow glow */
+}
+
+/* Vapor Trail Halo Effect */
+.planet::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130%; /* Slightly larger than the planet */
+    height: 130%; /* Slightly larger than the planet */
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1); /* Subtle vapor effect */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Soft glowing halo */
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Behind the planet */
+}
+
+/* Planet 1 */
+#planet1 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #4CAF50 60%, #2e8b57), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 2 */
+#planet2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #8A2BE2 60%, #7a4db8), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 3 */
+#planet3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #FF6347 60%, #ff4500), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 4 */
+#planet4 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #FF1493 60%, #ff68b3), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 5 */
+#planet5 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #00BFFF, #1e90ff), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 6 */
+#planet6 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #1E90FF, #4682B4), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px); /* Blue gradient */
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 7 */
+#planet7 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #F4A300 60%, #D2691E), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px); /* Chocolate brown gradient */
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Planet 8 */
+#planet8 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00CED1 60%, #20B2AA), radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px); /* Teal-to-light green gradient */
+    background-size: 5px 5px; /* Grain size */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Depth and light glow */
+}
+
+/* Orbit Animations */
+@keyframes orbit-1 {
+    0% {
+        transform: rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(150px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-2 {
+    0% {
+        transform: rotate(180deg) translateX(150px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(540deg) translateX(150px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-3 {
+    0% {
+        transform: rotate(30deg) translateX(250px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(390deg) translateX(250px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-4 {
+    0% {
+        transform: rotate(210deg) translateX(250px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(570deg) translateX(250px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-5 {
+    0% {
+        transform: rotate(60deg) translateX(350px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(420deg) translateX(350px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-6 {
+    0% {
+        transform: rotate(240deg) translateX(350px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(600deg) translateX(350px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-7 {
+    0% {
+        transform: rotate(90deg) translateX(450px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(450deg) translateX(450px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+@keyframes orbit-8 {
+    0% {
+        transform: rotate(270deg) translateX(450px) rotate(0deg); /* Horizontal orbit */
+    }
+    100% {
+        transform: rotate(630deg) translateX(450px) rotate(-360deg); /* Horizontal orbit */
+    }
+}
+
+/* General Styles for Vapor Trails */
+.trail {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    opacity: 0.5; /* Initial opacity */
+    z-index: 0; /* Below planets */
+    pointer-events: none; /* Non-interactable */
+    animation: trail-fade 2s linear forwards, trail-move 2s cubic-bezier(0.42, 0, 0.58, 1) infinite; /* Fade and movement */
+    clip-path: circle(50% at 50% 50%); /* Clipping to circle shape to stay inside bounds */
+}
+
+/* Trail Fade-Out Animation */
+@keyframes trail-fade {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Funnel-Inspired Movement Animation (Smoother) */
+@keyframes trail-move {
+    0% {
+        transform: translate(0, 0) scale(1); /* Start at normal size */
+    }
+    30% {
+        transform: translate(5px, -5px) scale(1.2); /* Slightly spread out */
+    }
+    50% {
+        transform: translate(0px, 0px) scale(1.5); /* Max width of the funnel */
+    }
+    70% {
+        transform: translate(-5px, 5px) scale(1.2); /* Narrowing slightly */
+    }
+    100% {
+        transform: translate(0, 0) scale(1); /* Returning to original position */
+    }
+}
+
+/* Orbit Assignments */
+.orbit-1 {
+    animation: orbit-1 10s linear infinite;
+}
+
+.orbit-2 {
+    animation: orbit-2 10s linear infinite;
+}
+
+.orbit-3 {
+    animation: orbit-3 15s linear infinite;
+}
+
+.orbit-4 {
+    animation: orbit-4 15s linear infinite;
+}
+
+.orbit-5 {
+    animation: orbit-5 20s linear infinite;
+}
+
+.orbit-6 {
+    animation: orbit-6 20s linear infinite;
+}
+
+.orbit-7 {
+    animation: orbit-7 25s linear infinite;
+}
+
+.orbit-8 {
+    animation: orbit-8 25s linear infinite;
+}
+
+.ufo-contain {
+    width: 120px;                /* Set width */
+    height: 40px;                /* Set height */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    -webkit-animation: stray 6s ease-in-out infinite alternate;
+    -moz-animation: stray 6s ease-in-out infinite alternate;
+    animation: stray 6s ease-in-out infinite alternate;
+}
+
+@keyframes stray {
+  0% {
+    top: 49.5%;
+    left: 50.5%;
+  }
+  30% {
+    top: 50.5%;
+    left: 49.5%;
+  }
+  50% {
+    top: 50.5%;
+    left: 50.5%;
+  }
+  70% {
+    top: 49.5%;
+    left: 49.5%;
+  }
+  100% {
+    top: 49.5%;
+    left: 50.5%;
+  }
+}
+
+/* UFO Upper */
+.ufo-upper {
+    background-color: rgba(153, 153, 153, 0.5); /* Faded background */
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    z-index: 2;
+    border-radius: 100%;
+    box-shadow: inset 0px 7px 0px 0px rgba(255, 255, 255, 0.2);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}  
+
+.ufo-upper .cockpit {
+  background-color: #1c1c1c;
+  width: 40px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  left: 50%;
+  border-radius: 100%;
+  box-shadow: -8px 3px 0px 0px #7A7A7A;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.ufo-upper .cockpit .alien {
+    background-color: #6FDCAE;
+    width: 27px;  /* Increased width for an oval shape */
+    height: 32px;  /* Keep the height smaller */
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    z-index: 2;
+    border-radius: 50%;  /* Makes the shape oval */
+    box-shadow: inset -6px 3px 0px 0px rgba(255, 255, 255, 0.6);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+  }
+  
+
+.ufo-upper .cockpit .alien .eye {
+  background-color: #F7FFF7;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 0.5px #6FDCAE;
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  -o-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+.ufo-upper .cockpit .alien .eye:before {
+  content: "";
+  background-color: #1c1c1c;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  border-radius: 100%;
+  -webkit-transform: translate(-50%, 0%) scale(1, 1);
+  -moz-transform: translate(-50%, 0%) scale(1, 1);
+  -ms-transform: translate(-50%, 0%) scale(1, 1);
+  -o-transform: translate(-50%, 0%) scale(1, 1);
+  transform: translate(-50%, 0%) scale(1, 1);
+  -webkit-transition: 0.75s;
+  z-index: 2;
+  -moz-transition: 0.75s;
+  -ms-transition: 0.75s;
+  -o-transition: 0.75s;
+  transition: 0.75s;
+  -webkit-animation: iris 6s ease infinite alternate;
+  -moz-animation: iris 6s ease infinite alternate;
+  animation: iris 6s ease infinite alternate;
+}
+
+/* Keyframes for smaller elements */
+@keyframes zip {
+  0% { left: 100%; }
+  85% { left: 100%; }
+  90% { left: -50%; }
+  100% { left: -50%; }
+}
+
+@keyframes stray {
+  0% { top: 49.5%; left: 50.5%; }
+  30% { top: 50.5%; left: 49.5%; }
+  50% { top: 50.5%; left: 50.5%; }
+  70% { top: 49.5%; left: 49.5%; }
+  100% { top: 49.5%; left: 50.5%; }
+}
+
+@keyframes iris {
+  0% { top: 25%; left: 50%; }
+  5% { top: 25%; left: 50%; }
+  10% { top: 12%; left: 62%; }
+  28% { top: 12%; left: 62%; }
+  34% { top: 32%; left: 50%; }
+  48% { top: 32%; left: 50%; }
+  64% { top: 24%; left: 48%; }
+  70% { top: 24%; left: 48%; }
+  86% { top: 32%; left: 42%; }
+  100% { top: 25%; left: 50%; }
+}
+
+.ufo-upper .cockpit .alien .eye:after {
+    content: "";
+    width: 10px;  /* Set width and height to make it a circle */
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    left: 50%;
+    border-radius: 50%;  /* Makes it a perfect circle */
+    transform: translate(-50%, -50%);
+    transition: 0.15s;
+    animation: blink 6s ease-out infinite;
+}  
+  
+@keyframes blink {
+    0% {
+      height: 10px;  /* Adjusted height in keyframes */
+    }
+    90% {
+      height: 10px;
+    }
+    95% {
+      height: 0px;
+    }
+    100% {
+      height: 10px;
+    }
+}
+  
+.ufo-upper .cockpit .glass {
+    background-color: rgba(61, 90, 108, 0.4);
+    width: 35px;  /* Reduced width */
+    height: 35px;  /* Reduced height */
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    z-index: 2;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom: 1px solid #999;
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+  
+.ufo-upper .cockpit .glass-edge {
+    background-color: transparent;
+    width: 35px;  /* Reduced width */
+    height: 5px;  /* Reduced height */
+    overflow: hidden;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    z-index: 2;
+    border-bottom: 1px solid transparent;
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+  
+.ufo-upper .cockpit .glass-edge:before {
+    content: "";
+    background-color: transparent;
+    width: 35px;  /* Reduced width */
+    height: 10px;  /* Reduced height */
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    z-index: 2;
+    border-radius: 50%;
+    box-shadow: -14px 0px 0px 7px #7A7A7A, 31px 0px 0px 7px #999;  /* Adjusted shadow to match size */
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}  
+  
+@-moz-keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+  
+@-webkit-keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+  
+@keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}  
+
+.ufo-lower {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    -webkit-transform: rotateX(70deg);
+    -moz-transform: rotateX(70deg);
+    -ms-transform: rotateX(70deg);
+    -o-transform: rotateX(70deg);
+    transform: rotateX(70deg);
+  }
+  .ufo-lower .lights {
+    background-color: #454545;
+    width: 154px;
+    height: 154px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    border-radius: 100%;
+    z-index: 1;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-animation: spin 1s linear infinite reverse;
+    -moz-animation: spin 1s linear infinite reverse;
+    animation: spin 1s linear infinite reverse;
+  }
+  @-moz-keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -moz-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+      -o-transform: translate(-50%, -50%) rotate(0deg);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%) rotate(360deg);
+      -moz-transform: translate(-50%, -50%) rotate(360deg);
+      -ms-transform: translate(-50%, -50%) rotate(360deg);
+      -o-transform: translate(-50%, -50%) rotate(360deg);
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  .ufo-lower .lights span {
+    background-color: #FFCB47;
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    z-index: 1;
+    display: block;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+  .ufo-lower .lights span:nth-child(1) {
+    -webkit-transform: translate(0%, -50%) rotate(0deg);
+    -moz-transform: translate(0%, -50%) rotate(0deg);
+    -ms-transform: translate(0%, -50%) rotate(0deg);
+    -o-transform: translate(0%, -50%) rotate(0deg);
+    transform: translate(0%, -50%) rotate(0deg);
+  }
+  .ufo-lower .lights span:nth-child(2) {
+    -webkit-transform: translate(0%, -50%) rotate(120deg);
+    -moz-transform: translate(0%, -50%) rotate(120deg);
+    -ms-transform: translate(0%, -50%) rotate(120deg);
+    -o-transform: translate(0%, -50%) rotate(120deg);
+    transform: translate(0%, -50%) rotate(120deg);
+  }
+  .ufo-lower .lights span:nth-child(3) {
+    -webkit-transform: translate(0%, -50%) rotate(240deg);
+    -moz-transform: translate(0%, -50%) rotate(240deg);
+    -ms-transform: translate(0%, -50%) rotate(240deg);
+    -o-transform: translate(0%, -50%) rotate(240deg);
+    transform: translate(0%, -50%) rotate(240deg);
+  }
+  .ufo-lower:after {
+    content: "";
+    background-color: #454545;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    border-radius: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .tractor-beam {
+    box-shadow: 0px 30px 75px 4px rgba(255, 255, 255, 0.5);  /* Reduced opacity on shadow */
+    -webkit-perspective: 150px;  /* Reduced perspective */
+    -moz-perspective: 150px;
+    -ms-perspective: 150px;
+    perspective: 150px;
+    -webkit-perspective-origin: 50% 100%;
+    perspective-origin: 50% 100%;
+}
+
+.tractor-beam:before {
+    content: "";
+    background-color: rgba(247, 255, 247, 0.4); /* Light white with more transparency */
+    width: 20px;  /* Thinner beam */
+    height: 350px;  /* Keep the same height */
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    opacity: 0.4; /* Increased transparency */
+    padding: 1px;
+    -webkit-transform-origin: 50% 0%;
+    -moz-transform-origin: 50% 0%;
+    -ms-transform-origin: 50% 0%;
+    -o-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: translate(-50%, 0%) rotateX(45deg);
+    -moz-transform: translate(-50%, 0%) rotateX(45deg);
+    -ms-transform: translate(-50%, 0%) rotateX(45deg);
+    -o-transform: translate(-50%, 0%) rotateX(45deg);
+    transform: translate(-50%, 0%) rotateX(45deg);
+    -webkit-animation: lightshift 3s ease-in-out infinite alternate;
+    -moz-animation: lightshift 3s ease-in-out infinite alternate;
+    animation: lightshift 3s ease-in-out infinite alternate;
+}
+
+@-moz-keyframes lightshift {
+    0% {
+        -webkit-transform: translate(-50%, 0%) rotateX(45deg);
+        -moz-transform: translate(-50%, 0%) rotateX(45deg);
+        -ms-transform: translate(-50%, 0%) rotateX(45deg);
+        -o-transform: translate(-50%, 0%) rotateX(45deg);
+        transform: translate(-50%, 0%) rotateX(45deg);
+        opacity: 0.4;
+    }
+    100% {
+        -webkit-transform: translate(-50%, 0%) rotateX(40deg);
+        -moz-transform: translate(-50%, 0%) rotateX(40deg);
+        -ms-transform: translate(-50%, 0%) rotateX(40deg);
+        -o-transform: translate(-50%, 0%) rotateX(40deg);
+        transform: translate(-50%, 0%) rotateX(40deg);
+        opacity: 0.3;
+    }
+}
+
+@-webkit-keyframes lightshift {
+    0% {
+        -webkit-transform: translate(-50%, 0%) rotateX(45deg);
+        -moz-transform: translate(-50%, 0%) rotateX(45deg);
+        -ms-transform: translate(-50%, 0%) rotateX(45deg);
+        -o-transform: translate(-50%, 0%) rotateX(45deg);
+        transform: translate(-50%, 0%) rotateX(45deg);
+        opacity: 0.4;
+    }
+    100% {
+        -webkit-transform: translate(-50%, 0%) rotateX(40deg);
+        -moz-transform: translate(-50%, 0%) rotateX(40deg);
+        -ms-transform: translate(-50%, 0%) rotateX(40deg);
+        -o-transform: translate(-50%, 0%) rotateX(40deg);
+        transform: translate(-50%, 0%) rotateX(40deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes lightshift {
+    0% {
+        -webkit-transform: translate(-50%, 0%) rotateX(45deg);
+        -moz-transform: translate(-50%, 0%) rotateX(45deg);
+        -ms-transform: translate(-50%, 0%) rotateX(45deg);
+        -o-transform: translate(-50%, 0%) rotateX(45deg);
+        transform: translate(-50%, 0%) rotateX(45deg);
+        opacity: 0.4;
+    }
+    100% {
+        -webkit-transform: translate(-50%, 0%) rotateX(40deg);
+        -moz-transform: translate(-50%, 0%) rotateX(40deg);
+        -ms-transform: translate(-50%, 0%) rotateX(40deg);
+        -o-transform: translate(-50%, 0%) rotateX(40deg);
+        transform: translate(-50%, 0%) rotateX(40deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes flyToUFO {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        z-index: 1;
+    }
+    50% {
+        transform: translateY(-100px) scale(1.2);
+        z-index: 10;
+    }
+    100% {
+        transform: translateY(-250px) scale(0.5);
+        opacity: 0.6;
+        z-index: 100;
+    }
+}
+
+.fly-to-ufo {
+    animation: flyToUFO 2s ease-in-out forwards;
+    position: relative;
+    z-index: 100;
+}
+
+table {
+    width: 70%; /* Reduced width */
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
+    border-radius: 8px; /* Slightly smaller border radius */
+    overflow: hidden;
+    margin: 15px auto; /* Center horizontally */
+    background-image: linear-gradient(#1e1e1e, #1e1e1e), radial-gradient(circle, #00d2ff, #3a7bd5);
+    background-origin: border-box;
+    background-clip: content-box;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 2s ease-in-out; /* Smooth fade-in transition */
+    display: none; /* Ensure the table is initially hidden */
+    margin-bottom: 40px;
+}
+
+/* Glowing cell effect on hover */
+td:hover {
+    box-shadow: 0 0 10px 2px rgba(0, 204, 255, 0.8); /* Glow effect */
+    color: #fff;
+    transition: box-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effects for rows */
+tr:hover {
+    background-color: #444;
+    transform: scale(1.02); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: all 0.3s ease;
+}
+
+tr:hover td {
+    color: #f0f0f0; /* Change text color on hover */
+}
+
+/* Styling for table header */
+th {
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+/* Styling for table data */
+td {
+    padding: 20px; /* Adjusted padding */
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+    color: #ccc;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+/* Remove border for the last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    
+    /* Adjust popup dimensions and padding for smaller screens */
+    .planet-popup {
+        flex-direction: column; /* Ensures vertical stacking if needed */
+        justify-content: center; /* Center content vertically */
+        width: 85vw; /* Make the popup almost full screen width */
+        height: 70vh; /* Allow height to adjust based on content */
+        padding: 15px; /* Reduce padding */
+        border-radius: 8px; /* Slightly smaller border radius */
+    }
+
+    /* Adjust popup content styles */
+    .planet-content h1 {
+        font-size: 2rem; /* Reduce font size */
+        margin-bottom: 15px; /* Adjust margin */
+        margin-top: 15px; /* Adjust margin */
+    }
+
+    .planet-content p {
+        line-height: 1.8; /* Adjust line height for readability */
+    }
+
+    /* Scale down the close buttons */
+    .close-btn-left,
+    .close-btn-right {
+        font-size: 35px; /* Reduce font size */
+        top: 10px; /* Adjust position */
+    }
+
+    /* Adjust the link box */
+    .planet1link-box {
+        font-size: 1.2rem; /* Reduce font size */
+        width: 80%; /* Adjust width to fit smaller screens */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    .planet-container {
+        width: 100%; /* Make it span the width of the container */
+        height: 100px; /* Set a height for the container */
+        top: 0%;
+        display: block; /* Make sure it still occupies space */
+    }
+
+    .planet-container-header {
+        font-size: 1rem;
+    }
+
+    .planet-btn1, .planet-btn2 {
+        margin-top: -1px;
+    }
+
+    .ufo-contain {
+        visibility: hidden;
+        display: none;
+    }
+    
+    .space-map {
+        width: 91vw;
+    }
+
+    /* Scale down the central object */
+    .central-object {
+        width: 50px; /* Smaller width */
+        height: 50px; /* Smaller height */
+        border: 4px solid #fff; /* Adjust border size */
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Scale down the accretion disk */
+    .accretion-disk {
+        width: 75px; /* Smaller size */
+        height: 75px;
+        margin-top: -62.5px; /* Adjust centering */
+        margin-left: -62.5px;
+        animation: accretion-spin 4s infinite linear; /* Slightly slower spin */
+    }
+
+    /* Adjust the planet size */
+    .planet {
+        width: 15px; /* Smaller planets */
+        height: 15px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(0, 255, 255, 0.3),
+                    0 0 40px rgba(0, 255, 255, 0.1),
+                    0 0 60px rgba(255, 165, 0, 0.4),
+                    0 0 80px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Hover effect remains responsive */
+    .planet:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(0, 255, 255, 0.5),
+                    0 0 70px rgba(0, 255, 255, 0.3),
+                    0 0 90px rgba(255, 165, 0, 0.6),
+                    0 0 110px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Adjust vapor trail size */
+    .planet::after {
+        width: 110%; /* Slightly larger than planet */
+        height: 110%; /* Slightly larger than planet */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow */
+    }
+
+    #planet1 {
+        width: 15px; /* Smaller size */
+        height: 15px;
+    }
+
+    /* Planet 2 */
+    #planet2 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 3 */
+    #planet3 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 4 */
+    #planet4 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 5 */
+    #planet5 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 6 */
+    #planet6 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 7 */
+    #planet7 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Planet 8 */
+    #planet8 {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* General Styles for Vapor Trails */
+    .trail {
+        width: 10px; /* Smaller size for mobile */
+        height: 10px;
+        opacity: 0.4; /* Slightly less opacity for a subtler effect */
+    }
+
+    /* Modify the animation duration for smoother movement */
+    .trail {
+        animation: trail-fade 2s linear forwards, trail-move 3s cubic-bezier(0.42, 0, 0.58, 1) infinite; /* Slow down the movement */
+    }
+
+    /* Orbit Animations */
+    @keyframes orbit-1 {
+        0% {
+            transform: rotate(0deg) translateX(80px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(80px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-2 {
+        0% {
+            transform: rotate(180deg) translateX(80px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(540deg) translateX(80px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-3 {
+        0% {
+            transform: rotate(30deg) translateX(130px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(390deg) translateX(130px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-4 {
+        0% {
+            transform: rotate(210deg) translateX(130px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(570deg) translateX(130px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-5 {
+        0% {
+            transform: rotate(60deg) translateX(180px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(420deg) translateX(180px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-6 {
+        0% {
+            transform: rotate(240deg) translateX(180px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(600deg) translateX(180px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-7 {
+        0% {
+            transform: rotate(90deg) translateX(230px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(450deg) translateX(230px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    @keyframes orbit-8 {
+        0% {
+            transform: rotate(270deg) translateX(230px) rotate(0deg); /* Smaller Horizontal orbit */
+        }
+        100% {
+            transform: rotate(630deg) translateX(230px) rotate(-360deg); /* Smaller Horizontal orbit */
+        }
+    }
+
+    table {
+        width: 90%; /* Increase width for smaller screens */
+        margin: 10px auto; /* Adjust margin */
+    }
+
+    th, td {
+        padding: 10px; /* Smaller padding */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    /* Remove box shadow effect on smaller screens */
+    table {
+        box-shadow: none;
+    }
+
+    /* Reduce the margin for mobile */
+    td:hover {
+        box-shadow: none; /* No glow effect on mobile */
+    }
+
+    tr:hover {
+        transform: none; /* Remove hover zoom on mobile */
+    }
+
+    /* Adjust header background color for mobile */
+    th {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Adjust row colors and text color */
+    tr:nth-child(even) {
+        background-color: #333; /* Darker background for odd rows */
+    }
+
+}

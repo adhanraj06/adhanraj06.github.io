@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:description" content="Hi! Please feel free to look through my resume and reach out if you need anything!" />
+  <meta property="og:image" content="https://adhanraj06.github.io/websitelogo.jpg" />
+  <meta name="title" property="og:title" content="Resume Page" />
+  <meta property="og:url" content="https://adhanraj06.github.io/resume" />
+  <link rel="canonical" href="https://adhanraj06.github.io/resume" />
+  <meta name="author" content="Aditya Dhanraj" />
+  <title>Resume Page</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #525089;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2C3E50;
+      color: #ECF0F1;
+      padding: 10px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    header nav ul li {
+      margin: 5px 15px;
+    }
+
+    header nav ul li a {
+      font-family: 'Markazi Text', sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #ECF0F1;
+      padding: 5px 10px;
+    }
+
+    header nav ul li a:hover {
+      color: #1aa287;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-family: 'Markazi Text', serif;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .dropdown-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    select option {
+        text-align: center;
+    }
+
+    select {
+        padding: 10px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        border: none;
+        width: 200px;
+        font-family: 'Markazi Text', serif;
+        text-align: center;
+        text-align-last: center;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .download-btn {
+      padding: 10px 20px;
+      background-color: #18987e;
+      font-family: 'Markazi Text';
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #16a085;
+      transform: scale(1.05);
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .pdf-viewer canvas {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    footer p {
+      font-family: 'Markazi Text', serif;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      select {
+        width: 90%;
+        text-align-last: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2TE8DX7F4B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-2TE8DX7F4B');
+  </script>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html" class="active">Resume</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>I’m ahead on credits and have the flexibility to graduate in either <strong>2027</strong> or <strong>2028</strong>.</h1>
+
+    <div class="dropdown-section">
+      <select id="yearSelect">
+        <option value="" disabled selected>Select Year</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+
+      <select id="trackSelect">
+        <option value="" disabled selected>Select Track</option>
+        <option value="Quant">Quant</option>
+        <option value="SWE">SWE</option>
+        <option value="DataScience">Data Science</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Finance">Finance</option>
+      </select>
+
+      <div class="action-buttons" id="buttonsContainer" style="display: none;">
+        <a id="downloadBtn" href="#" class="download-btn" download>Download</a>
+        <button class="download-btn" id="viewBtn">View</button>
+      </div>
+    </div>
+
+    <div id="pdf-viewer" class="pdf-viewer"></div>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> Aditya Dhanraj. All rights reserved.</p>
+  </footer>
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script>
+    const yearSelect = document.getElementById('yearSelect');
+    const trackSelect = document.getElementById('trackSelect');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const viewBtn = document.getElementById('viewBtn');
+    const buttonsContainer = document.getElementById('buttonsContainer');
+    const viewer = document.getElementById('pdf-viewer');
+
+    function getFileName(year, track) {
+      const base = "documents/AdityaDhanraj_";
+      if (year === "2027") {
+        return `${base}${track}_Resume.pdf`;
+      } else if (year === "2028") {
+        return `${base}${track}Resume.pdf`;
+      }
+      return null;
+    }
+
+    function updateButtons() {
+      const year = yearSelect.value;
+      const track = trackSelect.value;
+      if (year && track) {
+        const fileName = getFileName(year, track);
+        downloadBtn.href = fileName;
+        viewBtn.onclick = () => renderResume(fileName);
+        buttonsContainer.style.display = 'flex';
+      } else {
+        buttonsContainer.style.display = 'none';
+        viewer.innerHTML = '';
+      }
+    }
+
+    function renderResume(url) {
+      viewer.innerHTML = '';
+      pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+        const pageNumber = 1;
+        let scale = window.innerWidth < 768 ? 0.6 : window.innerWidth < 1024 ? 0.75 : 0.9;
+        pdfDoc_.getPage(pageNumber).then(function (page) {
+          const viewport = page.getViewport({ scale });
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          viewer.appendChild(canvas);
+          page.render({ canvasContext: context, viewport });
+        });
+      });
+    }
+
+    yearSelect.addEventListener('change', updateButtons);
+    trackSelect.addEventListener('change', updateButtons);
+
+    window.onload = () => {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    };
+  </script>
+</body>
+</html>
