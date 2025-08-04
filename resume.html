@@ -251,19 +251,33 @@
     }
 
     function renderResume(url) {
-      viewer.innerHTML = '';
-      pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-        const pageNumber = 1;
-        let scale = window.innerWidth < 768 ? 0.6 : window.innerWidth < 1024 ? 0.75 : 0.9;
-        pdfDoc_.getPage(pageNumber).then(function (page) {
+      viewer.innerHTML = ''; // Clear previous viewer content
+
+      // Add cache-busting query string to force reload
+      const bustedUrl = url + '?v=' + new Date().getTime();
+
+      // Fetch and render the PDF
+      pdfjsLib.getDocument(bustedUrl).promise.then(function (pdfDoc) {
+        const scale = window.innerWidth < 768 ? 0.6 : window.innerWidth < 1024 ? 0.75 : 0.9;
+
+        pdfDoc.getPage(1).then(function (page) {
           const viewport = page.getViewport({ scale });
           const canvas = document.createElement('canvas');
           const context = canvas.getContext('2d');
+
           canvas.height = viewport.height;
           canvas.width = viewport.width;
           viewer.appendChild(canvas);
-          page.render({ canvasContext: context, viewport });
+
+          const renderTask = page.render({ canvasContext: context, viewport });
+          renderTask.promise.catch(function (renderErr) {
+            console.error('Render error:', renderErr);
+            viewer.innerHTML = '<p style="color: white;">Error rendering PDF page.</p>';
+          });
         });
+      }).catch(function (err) {
+        console.error('PDF load error:', err);
+        viewer.innerHTML = '<p style="color: white;">Could not load PDF. Check if the file exists.</p>';
       });
     }
 
