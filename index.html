@@ -46,7 +46,7 @@
         <h1 style="font-size: 2.5rem;">Bachelor of Science in Computer Science</h1>
         <div class="image-container">
             <a href="https://linkedin.com/in/adhanraj" target="_blank">
-                <button class="social-btn left-btn" onclick="trackButtonClick('Home - LinkedIn')">
+                <button class="social-btn left-btn" onclick="trackButtonClick('Home - LinkedIn')" style="margin-top: 20px;">
                     <img src="images/linkedin.jpg" alt="LinkedIn">
                 </button>
             </a>
@@ -54,7 +54,7 @@
             <img src="images/ut-austin.jpg" alt="UT Austin" class="wide-pic" style="margin-top: 20px;">
             
             <a href="https://github.com/adhanraj06" target="_blank">
-                <button class="social-btn right-btn" onclick="trackButtonClick('Home - GitHub')">
+                <button class="social-btn right-btn" onclick="trackButtonClick('Home - GitHub')" style="margin-top: 20px;">
                     <img src="images/github.jpg" alt="GitHub">
                 </button>
             </a>
@@ -66,15 +66,15 @@
         <div class="button-container">
             <p style="font-family: Markazi Text; font-size: 2rem; margin-top: 10px;">Interests</p>
             <div class="button-row">
-                <button class="interest-btn" id="computer-science-btn" onclick="trackButtonClick('Home - Computer Science')">
+                <button class="interest-btn-oth" id="computer-science-btn">
                     <img src="images/cs.jpg" alt="CS Icon">
                     <p>Computer Science</p>
                 </button>
-                <button class="interest-btn" id="finance-btn">
-                    <img src="images/finance.jpg" alt="Finance Icon" onclick="trackButtonClick('Home - Finance')">
+                <button class="interest-btn-oth" id="finance-btn">
+                    <img src="images/finance.jpg" alt="Finance Icon">
                     <p>Finance</p>
                 </button>
-                <button class="interest-btn" id="mathematics-btn" onclick="trackButtonClick('Home - Mathematics')">
+                <button class="interest-btn-oth" id="mathematics-btn">
                     <img src="images/math.jpg" alt="Math Icon">
                     <p>Mathematics</p>
                 </button>
@@ -231,6 +231,8 @@
                     
                     <div id="sports-info" class="experience-box" style="display: none; margin-top: -5px; margin-bottom: 25px;">
                         Been Playing Football for the Past <span id="years-playing-football"></span> Years
+                        <br><br>
+                        Invited to represent the USA nationally at the 2023 United World Games in U18 Soccer
                         <br><br>
                         Previously Played For:
                         <ul>
@@ -499,8 +501,8 @@
     const currentYear = new Date().getFullYear();
     document.getElementById('current-year').textContent = currentYear;
 
-    const startYearPiano = 2012;
-    const startYearFootball = 2012;
+    const startYearPiano = 2011;
+    const startYearFootball = 2011;
     const yearsPlayingPiano = currentYear - startYearPiano;
     const yearsPlayingFootball = currentYear - startYearFootball;
 

@@ -185,18 +185,12 @@
   </header>
 
   <main>
-    <h1>I’m ahead on credits and have the flexibility to graduate in either <strong>2027</strong> or <strong>2028</strong>.</h1>
-
     <div class="dropdown-section">
-      <select id="yearSelect">
-        <option value="" disabled selected>Select Year</option>
-        <option value="2027">2027</option>
-        <option value="2028">2028</option>
-      </select>
-
       <select id="trackSelect">
         <option value="" disabled selected>Select Track</option>
-        <option value="Quant">Quant</option>
+        <option value="QuantTrading">Quant Trading</option>
+        <option value="QuantResearch">Quant Research</option>
+        <option value="QuantDev">Quant Dev</option>
         <option value="SWE">SWE</option>
         <option value="DataScience">Data Science</option>
         <option value="Engineering">Engineering</option>
@@ -219,28 +213,21 @@
   <!-- PDF.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   <script>
-    const yearSelect = document.getElementById('yearSelect');
     const trackSelect = document.getElementById('trackSelect');
     const downloadBtn = document.getElementById('downloadBtn');
     const viewBtn = document.getElementById('viewBtn');
     const buttonsContainer = document.getElementById('buttonsContainer');
     const viewer = document.getElementById('pdf-viewer');
 
-    function getFileName(year, track) {
+    function getFileName(track) {
       const base = "documents/AdityaDhanraj_";
-      if (year === "2027") {
-        return `${base}${track}_Resume.pdf`;
-      } else if (year === "2028") {
-        return `${base}${track}Resume.pdf`;
-      }
-      return null;
+      return `${base}${track}Resume.pdf`;
     }
 
     function updateButtons() {
-      const year = yearSelect.value;
       const track = trackSelect.value;
-      if (year && track) {
-        const fileName = getFileName(year, track);
+      if (track) {
+        const fileName = getFileName(track);
         downloadBtn.href = fileName;
         viewBtn.onclick = () => renderResume(fileName);
         buttonsContainer.style.display = 'flex';
@@ -252,19 +239,14 @@
 
     function renderResume(url) {
       viewer.innerHTML = ''; // Clear previous viewer content
-
-      // Add cache-busting query string to force reload
       const bustedUrl = url + '?v=' + new Date().getTime();
 
-      // Fetch and render the PDF
       pdfjsLib.getDocument(bustedUrl).promise.then(function (pdfDoc) {
         const scale = window.innerWidth < 768 ? 0.6 : window.innerWidth < 1024 ? 0.75 : 0.9;
-
         pdfDoc.getPage(1).then(function (page) {
           const viewport = page.getViewport({ scale });
           const canvas = document.createElement('canvas');
           const context = canvas.getContext('2d');
-
           canvas.height = viewport.height;
           canvas.width = viewport.width;
           viewer.appendChild(canvas);
@@ -281,7 +263,6 @@
       });
     }
 
-    yearSelect.addEventListener('change', updateButtons);
     trackSelect.addEventListener('change', updateButtons);
 
     window.onload = () => {

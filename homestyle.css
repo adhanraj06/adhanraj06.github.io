@@ -233,6 +233,28 @@ header nav ul li a.active {
     font-weight: bold;
 }
 
+.interest-btn-oth { /* Same size for the other buttons and the "Other" button */
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.25rem;
+    text-align: center;
+    width: 200px; /* Same width for all buttons */
+    display: block;
+}
+
+.interest-btn-oth img {
+    max-width: 40px;
+}
+
+.interest-btn-oth p {
+    font-weight: bold;
+}
+
 .interests-heading {
     display: none; 
     text-align: center;
