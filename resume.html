@@ -25,7 +25,9 @@
       background-color: #525089;
       display: flex;
       flex-direction: column;
+      
       min-height: 100vh;
+      justify-content: center;
     }
 
     header {
@@ -66,6 +68,9 @@
       flex-grow: 1;
       padding: 40px 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     h1 {
@@ -184,26 +189,24 @@
     </nav>
   </header>
 
-  <main>
-    <div class="dropdown-section">
-      <select id="trackSelect">
-        <option value="" disabled selected>Select Track</option>
-        <option value="QuantTrading">Quant Trading</option>
-        <option value="QuantResearch">Quant Research</option>
-        <option value="QuantDev">Quant Dev</option>
-        <option value="SWE">SWE</option>
-        <option value="DataScience">Data Science</option>
-        <option value="Engineering">Engineering</option>
-        <option value="Finance">Finance</option>
-      </select>
-
-      <div class="action-buttons" id="buttonsContainer" style="display: none;">
-        <a id="downloadBtn" href="#" class="download-btn" download>Download</a>
-        <button class="download-btn" id="viewBtn">View</button>
-      </div>
+ <main>
+    <div style="
+        background-color: rgba(0,0,0,0.4);
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+        max-width: 500px;
+        margin: 3rem auto;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        font-size: 2.5rem;
+        line-height: 1.6;
+        color: #f0f0f0;
+        font-family: 'Markazi Text', serif;
+      ">
+      Please reach out to me for a tailored resume or if you'd like to discuss opportunities.
     </div>
-
-    <div id="pdf-viewer" class="pdf-viewer"></div>
   </main>
 
   <footer>
@@ -213,58 +216,6 @@
   <!-- PDF.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   <script>
-    const trackSelect = document.getElementById('trackSelect');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const viewBtn = document.getElementById('viewBtn');
-    const buttonsContainer = document.getElementById('buttonsContainer');
-    const viewer = document.getElementById('pdf-viewer');
-
-    function getFileName(track) {
-      const base = "documents/AdityaDhanraj_";
-      return `${base}${track}Resume.pdf`;
-    }
-
-    function updateButtons() {
-      const track = trackSelect.value;
-      if (track) {
-        const fileName = getFileName(track);
-        downloadBtn.href = fileName;
-        viewBtn.onclick = () => renderResume(fileName);
-        buttonsContainer.style.display = 'flex';
-      } else {
-        buttonsContainer.style.display = 'none';
-        viewer.innerHTML = '';
-      }
-    }
-
-    function renderResume(url) {
-      viewer.innerHTML = ''; // Clear previous viewer content
-      const bustedUrl = url + '?v=' + new Date().getTime();
-
-      pdfjsLib.getDocument(bustedUrl).promise.then(function (pdfDoc) {
-        const scale = window.innerWidth < 768 ? 0.6 : window.innerWidth < 1024 ? 0.75 : 0.9;
-        pdfDoc.getPage(1).then(function (page) {
-          const viewport = page.getViewport({ scale });
-          const canvas = document.createElement('canvas');
-          const context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
-          viewer.appendChild(canvas);
-
-          const renderTask = page.render({ canvasContext: context, viewport });
-          renderTask.promise.catch(function (renderErr) {
-            console.error('Render error:', renderErr);
-            viewer.innerHTML = '<p style="color: white;">Error rendering PDF page.</p>';
-          });
-        });
-      }).catch(function (err) {
-        console.error('PDF load error:', err);
-        viewer.innerHTML = '<p style="color: white;">Could not load PDF. Check if the file exists.</p>';
-      });
-    }
-
-    trackSelect.addEventListener('change', updateButtons);
-
     window.onload = () => {
       document.getElementById('current-year').textContent = new Date().getFullYear();
     };

@@ -11,6 +11,28 @@
   <meta name="author" content="Aditya Dhanraj"> 
   <title>Home Page</title>
   <link rel="stylesheet" href="homestyle.css">
+  <style>
+    .email-contact-btn {
+      background-color: #1aa287;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: 'Markazi Text', serif;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .email-contact-btn:hover {
+      background-color: #16a085;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .email-contact-btn:active {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -61,7 +83,16 @@
         </div>            
         
         <!-- <p style="font-size: 1.8rem; margin-top: 15px; margin-bottom: 5px;"><a href="https://financialmarketmonitor.github.io/">Visit the Financial Market Monitor</a></p><br> -->
-        <p style="font-family: Markazi Text; font-size: 1.8rem; margin-bottom: 10px; margin-top: 20px">Contact Me @ <a href="mailto:adityadhanraj@utexas.edu">adityadhanraj@utexas.edu</a></p>
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 20px 0;">
+            <p style="font-family: Markazi Text; font-size: 1.8rem; margin: 10px 0;">Contact Me</p>
+            <a href="mailto:adityadhanraj@utexas.edu" class="email-contact-btn" style="display: inline-flex; align-items: center; text-decoration: none;">
+                <span style="margin-right: 8px;">adityadhanraj@utexas.edu</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
 
         <div class="button-container">
             <p style="font-family: Markazi Text; font-size: 2rem; margin-top: 10px;">Interests</p>
