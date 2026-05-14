@@ -10,9 +10,8 @@
   <link rel="canonical" href="https://adhanraj06.github.io/resume" />
   <meta name="author" content="Aditya Dhanraj" />
   <title>Resume Page</title>
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Markazi+Text:wght@400..700&display=swap');
 
     * {
       margin: 0;
@@ -21,13 +20,14 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: #525089;
+      font-family: 'Manrope', Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(127, 221, 201, 0.16), transparent 30%),
+        linear-gradient(180deg, #40407a 0%, #2d325a 45%, #252846 100%);
+      color: #f4f5fb;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      
-      min-height: 100vh;
-      justify-content: center;
     }
 
     header {
@@ -38,6 +38,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
     }
 
     header nav ul {
@@ -53,93 +54,413 @@
 
     header nav ul li a {
       font-family: 'Markazi Text', sans-serif;
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.7rem;
       text-decoration: none;
       color: #ECF0F1;
-      padding: 5px 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      position: relative;
+      display: inline-block;
+      padding: 5px 0;
+      transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
     }
 
     header nav ul li a:hover {
-      color: #1aa287;
+      color: #1ABC9C;
+      transform: scale(1.1);
+      text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8);
+    }
+
+    header nav ul li a.active {
+      color: #1ABC9C;
+      text-shadow: 0px 0px 10px rgba(26, 188, 156, 0.8);
     }
 
     main {
-      flex-grow: 1;
-      padding: 40px 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-family: 'Markazi Text', serif;
-      color: white;
-      margin-bottom: 40px;
-    }
-
-    .dropdown-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    select option {
-        text-align: center;
-    }
-
-    select {
-        padding: 10px;
-        font-size: 1.1rem;
-        border-radius: 5px;
-        border: none;
-        width: 200px;
-        font-family: 'Markazi Text', serif;
-        text-align: center;
-        text-align-last: center;
-    }
-
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .download-btn {
-      padding: 10px 20px;
-      background-color: #18987e;
-      font-family: 'Markazi Text';
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .download-btn:hover {
-      background-color: #16a085;
-      transform: scale(1.05);
-    }
-
-    .pdf-viewer {
-      width: 100%;
-      overflow: hidden;
-      margin-top: 30px;
-    }
-
-    .pdf-viewer canvas {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      display: block;
+      width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
+      padding: 40px 0 56px;
+      flex: 1;
+    }
+
+    .resume-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .resume-contact-box {
+      background: rgba(10, 16, 31, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+      padding: 1.55rem 2rem;
+      width: 100%;
+      text-align: center;
+      font-size: 1.85rem;
+      line-height: 1.24;
+      color: #f0f0f0;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .resume-section {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.55rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .program-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 132px;
+      text-align: center;
+    }
+
+    .program-card.featured {
+      min-height: 136px;
+      background:
+        radial-gradient(circle at top right, rgba(127, 221, 201, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .program-card h3,
+    .experience-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .program-card h3 {
+      line-height: 1.05;
+    }
+
+    .programs-more .program-card h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9cf5df;
+      margin-bottom: 10px;
+    }
+
+    .program-card p,
+    .experience-card p {
+      color: rgba(240, 244, 255, 0.9);
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+
+    .programs-more .program-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      line-height: 1.12;
+      text-align: center;
+      text-wrap: balance;
+      color: #ffffff;
+    }
+
+    .programs-more .program-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .program-card.featured p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.08;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .program-date {
+      margin-top: 12px;
+      color: #9cf5df;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .program-topline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .program-badge {
+      flex-shrink: 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(156, 245, 223, 0.22);
+      background: rgba(156, 245, 223, 0.12);
+      color: #dffff6;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      min-width: 42px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .program-badge.placeholder {
+      visibility: hidden;
+    }
+
+    .program-company {
+      display: block;
+      max-width: 100%;
+      line-height: 1.04;
+    }
+
+    .program-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      max-width: 100%;
+      padding: 7px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: inset 0 0 0 1px rgba(18, 26, 43, 0.05);
+    }
+
+    .program-logo {
+      display: block;
+      width: auto;
+      height: 22px;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      vertical-align: middle;
+    }
+
+    .program-logo.morgan-stanley-logo {
+      height: 18px;
+      transform: translateY(1px);
+    }
+
+    .program-logo.susquehanna-logo {
+      height: 20px;
+    }
+
+    .program-logo.servicenow-logo {
+      height: 18px;
+    }
+
+    .programs-more {
+      margin-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 18px;
+      text-align: center;
+    }
+
+    .programs-more summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(127, 221, 201, 0.2);
+      background: rgba(127, 221, 201, 0.1);
+      color: #e9fff9;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .programs-more summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .programs-more summary::after {
+      content: '+';
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .programs-more[open] summary::after {
+      content: '−';
+    }
+
+    .programs-more summary:hover {
+      transform: translateY(-1px);
+      background: rgba(127, 221, 201, 0.16);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
+    }
+
+    .programs-more-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .experience-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-section-note {
+      margin: -8px 0 16px;
+      text-align: center;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(220, 231, 255, 0.58);
+    }
+
+    .experience-card {
+      position: relative;
+      min-height: 126px;
+      perspective: 1200px;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      padding: 0;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+    }
+
+    .experience-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 126px;
+      transform-style: preserve-3d;
+      transition: transform 0.55s ease;
+    }
+
+    .experience-card.is-flipped .experience-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .experience-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(7, 14, 27, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      align-items: center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .experience-face.back {
+      transform: rotateY(180deg);
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+      align-content: center;
+      gap: 10px;
+      background:
+        radial-gradient(circle at top right, rgba(127, 221, 201, 0.15), transparent 40%),
+        rgba(7, 14, 27, 0.38);
+    }
+
+    .experience-back-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9cf5df;
+    }
+
+    .experience-back-copy {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      line-height: 1.08;
+      color: #ffffff;
+      text-wrap: balance;
+      max-width: 92%;
+    }
+
+    .experience-meta {
+      text-align: right;
+      color: rgba(210, 222, 255, 0.86);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    .experience-role {
+      color: #9cf5df;
+      font-size: 1.02rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .experience-heading {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .experience-heading h3 {
+      margin-bottom: 0;
+    }
+
+    .experience-separator {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.15rem;
     }
 
     footer {
@@ -151,26 +472,55 @@
     }
 
     footer p {
-      font-family: 'Markazi Text', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
     }
 
-    @media (max-width: 600px) {
-      .action-buttons {
-        flex-direction: column;
-        gap: 10px;
+    @media (max-width: 768px) {
+      main {
+        width: min(100% - 20px, 1100px);
+        padding: 24px 0 40px;
       }
 
-      select {
-        width: 90%;
-        text-align-last: center;
+      .resume-contact-box {
+        font-size: 1.8rem;
+        padding: 1.5rem 1.2rem;
+      }
+
+      .resume-section {
+        padding: 18px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        min-height: 138px;
+      }
+
+      .experience-face {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-meta {
+        text-align: left;
+        white-space: normal;
       }
     }
   </style>
 </head>
-
 <body>
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2TE8DX7F4B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -189,23 +539,344 @@
     </nav>
   </header>
 
- <main>
-    <div style="
-        background-color: rgba(0,0,0,0.4);
-        padding: 2rem 1.5rem;
-        border-radius: 15px;
-        max-width: 500px;
-        margin: 3rem auto;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-        font-size: 2.5rem;
-        line-height: 1.6;
-        color: #f0f0f0;
-        font-family: 'Markazi Text', serif;
-      ">
-      Please reach out to me for a tailored resume or if you'd like to discuss opportunities.
+  <main>
+    <div class="resume-grid">
+      <div class="resume-contact-box">
+        Please reach out to me for a tailored resume or if you'd like to discuss opportunities.
+      </div>
+
+      <section class="resume-section">
+        <div class="section-header">
+          <h2>Selective Early Talent Programs</h2>
+        </div>
+        <div class="programs-grid">
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/citadel.svg" alt="Citadel logo" class="program-logo">
+              </div>
+              <span class="program-badge">NY</span>
+            </div>
+            <p>Fixed Income &amp; Macro Central Bank Challenge</p>
+          </article>
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/morgan-stanley.svg" alt="Morgan Stanley logo" class="program-logo morgan-stanley-logo">
+              </div>
+              <span class="program-badge">NY</span>
+            </div>
+            <p>Institutional Equity Derivatives Trading &amp; Structuring Summit</p>
+          </article>
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/ubs.png" alt="UBS logo" class="program-logo">
+              </div>
+              <span class="program-badge">NY</span>
+            </div>
+            <p>Tomorrow's Talent Equity Research Insights Day</p>
+          </article>
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/susquehanna.webp" alt="Susquehanna logo" class="program-logo susquehanna-logo">
+              </div>
+              <span class="program-badge">NY</span>
+            </div>
+            <p>Quant Discovery Day</p>
+          </article>
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/servicenow.png" alt="ServiceNow logo" class="program-logo servicenow-logo">
+              </div>
+              <span class="program-badge">CA</span>
+            </div>
+            <p>Discover Program - Engineering</p>
+          </article>
+          <article class="program-card featured">
+            <div class="program-topline">
+              <div class="program-logo-wrap">
+                <img src="program_logos/walmart.svg" alt="Walmart logo" class="program-logo">
+              </div>
+              <span class="program-badge">AR</span>
+            </div>
+            <p>Spring Sophomore Summit: Software Engineer II Intern</p>
+          </article>
+        </div>
+        <details class="programs-more">
+          <summary>See More Programs</summary>
+          <div class="programs-more-grid">
+            <article class="program-card">
+              <h3>Bank of America</h3>
+              <p>Global Tech Early Insights Forum</p>
+            </article>
+            <article class="program-card">
+              <h3>Stout</h3>
+              <p>Future Leaders in Finance</p>
+            </article>
+            <article class="program-card">
+              <h3>Susquehanna Intl. Group</h3>
+              <p>First-Year Discovery Day</p>
+            </article>
+            <article class="program-card">
+              <h3>Bain &amp; Co.</h3>
+              <p>Consulting Kickstart</p>
+            </article>
+          </div>
+        </details>
+      </section>
+
+      <section class="resume-section">
+        <div class="section-header">
+          <h2>Experience</h2>
+        </div>
+        <div class="experience-section-note">Click To Focus</div>
+        <div class="experience-stack">
+          <button class="experience-card" type="button" aria-label="Flip Software Engineer Intern, Machine Learning at DatologyAI card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Software Engineer Intern, Machine Learning</div>
+                    <div class="experience-separator">-</div>
+                    <h3>DatologyAI</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>Aug. 2026 - Dec. 2026</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Details Coming Soon</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Associate Systems Engineer Intern at ServiceNow card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Associate Systems Engineer Intern</div>
+                    <div class="experience-separator">-</div>
+                    <h3>ServiceNow</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>May 2026 - Aug. 2026</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Details Coming Soon</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Founding Engineer at Stealth Startup card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Founding Engineer</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Stealth Startup</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>Nov. 2025 - May 2026</div>
+                  <div>Austin, TX</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">AI-Native Financial Intelligence Platform, Petroleum &amp; Energy Economics</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Undergraduate Research Assistant at University of Texas at Austin card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Undergraduate Research Assistant</div>
+                    <div class="experience-separator">-</div>
+                    <h3>University of Texas at Austin</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>Jan. 2025 - May 2026</div>
+                  <div>Austin, TX</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">LLM Systems &amp; GPU/CPU Optimization + Financial Mathematics Research (Stochastic Processes, Volatility Modeling, Commodities Forecasting) + Geoscience ML/NLP</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Founding Engineer at Stealth Startup remote card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Founding Engineer</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Stealth Startup</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>July 2025 - Nov. 2025</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Real-Time Fintech Infrastructure, Event-Driven Market Data Systems, Fintech Gaming Platform Architecture</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Investment Associate at University Finance Association card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Investment Associate</div>
+                    <div class="experience-separator">-</div>
+                    <h3>University Finance Association</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>Sept. 2024 - Oct. 2025</div>
+                  <div>Austin, TX</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Generalist Industry Group Head, Only First-Year Selected for the 2024 Program</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Equity Research Analyst Intern at Westlake Securities card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Equity Research Analyst Intern</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Westlake Securities</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>Oct. 2024 - Dec. 2024</div>
+                  <div>Austin, TX</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Institutional Equity Research on Walmart &amp; Atmos Energy, Valuation &amp; Investment Banking Exposure</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Executive Board Member at Computer Science Youth of America card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Executive Board Member</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Computer Science Youth of America</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>July 2023 - Aug. 2024</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">International CS Education Nonprofit Leadership, 950+ Students Reached, $285K+ Raised</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Computational Fluid Dynamics Researcher at University of North Texas card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Computational Fluid Dynamics Researcher</div>
+                    <div class="experience-separator">-</div>
+                    <h3>University of North Texas (UNT)</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>June 2023 - Oct. 2023</div>
+                  <div>Denton, TX</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Multiphysics &amp; Turbulence Simulation in ANSYS Fluent + AutoCAD</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Data Analyst Intern at Excelerate card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Data Analyst Intern</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Excelerate</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>July 2023 - Sept. 2023</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Team Lead, Ad Campaign Performance Analytics &amp; Optimization, Awarded Star Performer + $1,000 Scholarship</div>
+              </div>
+            </div>
+          </button>
+
+          <button class="experience-card" type="button" aria-label="Flip Innovation Consultant Intern at Excelerate card">
+            <div class="experience-card-inner">
+              <div class="experience-face front">
+                <div>
+                  <div class="experience-heading">
+                    <div class="experience-role">Innovation Consultant Intern</div>
+                    <div class="experience-separator">-</div>
+                    <h3>Excelerate</h3>
+                  </div>
+                </div>
+                <div class="experience-meta">
+                  <div>July 2023 - Sept. 2023</div>
+                  <div>Remote</div>
+                </div>
+              </div>
+              <div class="experience-face back">
+                <div class="experience-back-title">Focus</div>
+                <div class="experience-back-copy">Team Lead, Product Strategy &amp; Innovation Consulting For Emerging Consumer Technology, Awarded $500 Scholarship</div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -213,12 +884,16 @@
     <p>© <span id="current-year"></span> Aditya Dhanraj. All rights reserved.</p>
   </footer>
 
-  <!-- PDF.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   <script>
     window.onload = () => {
       document.getElementById('current-year').textContent = new Date().getFullYear();
     };
+
+    document.querySelectorAll('.experience-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+      });
+    });
   </script>
 </body>
 </html>

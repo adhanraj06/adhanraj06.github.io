@@ -1,4 +1,105 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector('.profile-carousel');
+    if (carousel) {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.querySelectorAll('.profile-pic'));
+        const prevButton = carousel.querySelector('.carousel-arrow-left');
+        const nextButton = carousel.querySelector('.carousel-arrow-right');
+        const autoplayIntervalMs = 4500;
+        let currentSlide = 0;
+        let autoplayId = null;
+        let dragStartX = 0;
+        let dragCurrentX = 0;
+        let isDragging = false;
+
+        function updateCarousel(animate = true) {
+            track.style.transition = animate ? 'transform 0.45s ease' : 'none';
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function goToSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            updateCarousel(true);
+        }
+
+        function startAutoplay() {
+            if (slides.length <= 1) return;
+            stopAutoplay();
+            autoplayId = window.setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, autoplayIntervalMs);
+        }
+
+        function stopAutoplay() {
+            if (autoplayId) {
+                window.clearInterval(autoplayId);
+                autoplayId = null;
+            }
+        }
+
+        function beginDrag(clientX) {
+            if (slides.length <= 1) return;
+            isDragging = true;
+            dragStartX = clientX;
+            dragCurrentX = clientX;
+            stopAutoplay();
+            track.style.transition = 'none';
+        }
+
+        function moveDrag(clientX) {
+            if (!isDragging) return;
+            dragCurrentX = clientX;
+            const deltaX = dragCurrentX - dragStartX;
+            const offsetPercent = (deltaX / carousel.offsetWidth) * 100;
+            track.style.transform = `translateX(calc(-${currentSlide * 100}% + ${offsetPercent}%))`;
+        }
+
+        function endDrag() {
+            if (!isDragging) return;
+            const deltaX = dragCurrentX - dragStartX;
+            isDragging = false;
+
+            if (Math.abs(deltaX) > carousel.offsetWidth * 0.18) {
+                goToSlide(currentSlide + (deltaX < 0 ? 1 : -1));
+            } else {
+                updateCarousel(true);
+            }
+
+            startAutoplay();
+        }
+
+        prevButton?.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+            startAutoplay();
+        });
+
+        nextButton?.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+            startAutoplay();
+        });
+
+        carousel.addEventListener('pointerdown', (event) => {
+            beginDrag(event.clientX);
+        });
+
+        window.addEventListener('pointermove', (event) => {
+            moveDrag(event.clientX);
+        });
+
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        if (slides.length <= 1) {
+            prevButton?.setAttribute('hidden', 'hidden');
+            nextButton?.setAttribute('hidden', 'hidden');
+        }
+
+        updateCarousel(false);
+        startAutoplay();
+    }
+
     // Hero section particle generation
     const hero = document.querySelector('.hero'); // Select the hero section
     let isDropping = true; // Tracks whether particles are dropping
