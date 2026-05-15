@@ -1528,26 +1528,56 @@ tr:last-child td {
 
     .planet-container {
         width: 100%; /* Make it span the width of the container */
-        height: 130px; /* Keep the sidebar usable while allowing scrolling */
+        height: auto;
+        min-height: 0;
         top: 0%;
-        display: block; /* Make sure it still occupies space */
-        overflow-y: auto;
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: 12px 16px 14px;
     }
 
     .planet-container-header {
         font-size: 1rem;
+        display: block;
+        width: max-content;
+        margin: 0 0 10px;
     }
 
     .planet-sidebar-label {
-        max-width: 110px;
-        margin: -8px auto 8px auto;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+        max-width: none;
+        min-height: 26px;
+        margin: 0 18px 0 0;
         font-size: 0.7rem;
         line-height: 1.1;
+        text-align: left;
     }
 
     .ufo-contain {
         visibility: hidden;
         display: none;
+    }
+
+    .planet-btn1,
+    .planet-btn2,
+    .planet-btn3,
+    .planet-btn4,
+    .planet-btn5,
+    .planet-btn6,
+    .planet-btn7,
+    .planet-btn8,
+    .planet-btn9,
+    .planet-btn10 {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        margin: 0 8px 0 0;
+        flex: 0 0 26px;
     }
     
     .space-map {
