@@ -2,8 +2,8 @@
 const planetData = {
     planet1: {
         title: "Financial Market Monitor",
-        timeframe: "September 2024 - Present",
-        content: "Independent market publication covering macro, earnings, M&A, equities, and FX.<br><br>Built around recurring research workflows, cross-asset synthesis, and Bloomberg-driven analysis.<br><br>Reached 800+ readers and 1,500+ cumulative views.",
+        timeframe: "September 2024 - May 2026",
+        content: "Independent market publication covering macro, earnings, M&A, equities, and FX.<br><br>Built around recurring research workflows, cross-asset synthesis, and Bloomberg-driven analysis.<br><br>Reached 1,000+ readers.",
     },
     planet2: {
         title: "EchoAlpha",
@@ -12,12 +12,12 @@ const planetData = {
     },
     planet3: {
         title: "PreTerm",
-        timeframe: "April 2025",
+        timeframe: "April 2026",
         content: "Prediction market terminal built for live research across Kalshi and Polymarket.<br><br>Combined React, TypeScript, Python, RAG, SQLAlchemy, and analytics pipelines in one workspace.<br><br>Included ingestion, copilot tooling, scenario modeling, and signal extraction.",
     },
     planet4: {
         title: "PromptCAD",
-        timeframe: "April 2025",
+        timeframe: "April 2026",
         content: "Conversational CAD copilot for turning text and voice prompts into OpenSCAD output.<br><br>Built with Python, Next.js, React, Gemini API, OpenSCAD, and ElevenLabs.<br><br>Generated printable STL artifacts with iterative updates and compile-error recovery.",
     },
     planet5: {
@@ -43,7 +43,7 @@ const planetData = {
     planet9: {
         title: "Dynamic Memory Allocator",
         timeframe: "February 2025",
-        content: "Custom malloc/free-style allocator written from scratch in C.<br><br>Included 16-byte alignment, explicit free lists, binning, bitwise metadata, and coalescing logic.<br><br>Reached 100% correctness across 24 traces with about 70% utilization and 1900 ops per second.",
+        content: "Custom malloc/free-style allocator written from scratch in C.<br><br>Included 16-byte alignment, explicit free lists, binning, bitwise metadata, and coalescing logic.<br><br>Reached 100% correctness across 24 traces with about 70% utilization and 1,900 ops per second.",
     },
     planet10: {
         title: "Algorithmic Trading Bot",
